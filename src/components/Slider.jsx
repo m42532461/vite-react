@@ -28,9 +28,10 @@ const Slider = () => {
           slideIndex * 100
         }vw]  ease-linear duration-1000`}
       >
-        {/* Slide */}
+        {/* Slider */}
         {sliderItems.map((item) => (
           <div
+            key={item.id}
             className={`flex items-center w-[100vw] h-[100vh] bg-[#${item.bg}]`}
           >
             {/* ImgContainer */}

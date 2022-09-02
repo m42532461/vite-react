@@ -1,5 +1,5 @@
 import Badge from "@mui/material/Badge";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 const Navbar = () => {
   return (
@@ -20,7 +20,7 @@ const Navbar = () => {
           <div className="text-[14px] cursor-pointer ml-[25px]">SIGN IN</div>
           <div className="text-[14px] cursor-pointer ml-[25px]">
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartIcon color="action" />
+              <ShoppingCartOutlinedIcon color="action" />
             </Badge>
           </div>
         </div>
