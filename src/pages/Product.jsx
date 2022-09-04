@@ -10,17 +10,17 @@ const Product = () => {
     <div className="">
       <Navbar />
       <Announcement />
-      <div className="flex">
+      <div className="flex p-[10px] md:p-[50px] md:flex-row flex-col">
         {/* ImgContainer */}
         <div className="flex-1 ">
           <img
-            className="w-full h-[90vh] object-cover"
+            className="w-full md:h-[90vh] h-[40vh] object-cover "
             src="https://i.ibb.co/S6qMxwr/jean.jpg"
             alt=""
           />
         </div>
         {/* InfoContainer */}
-        <div className="flex-1 px-[50px]">
+        <div className="flex-1 md:px-[50px] px-[10px]">
           {/* Title */}
           <h1 className="text-3xl font-extralight">Denim Jumpsuit</h1>
           {/* Desc */}
@@ -33,7 +33,7 @@ const Product = () => {
           {/* Price */}
           <span className="text-[40px] font-thin">$ 20</span>
           {/* FilterContainer */}
-          <div className="flex justify-between w-1/2 my-[30px]">
+          <div className="flex justify-between md:w-1/2 w-full my-[30px]">
             {/* Filter */}
             <div className="flex items-center">
               {/* FilterTitle */}
@@ -59,7 +59,7 @@ const Product = () => {
             </div>
           </div>
           {/* AddContainer */}
-          <div className="flex items-center w-1/2 justify-between">
+          <div className="flex items-center md:w-1/2 w-full justify-between">
             {/* AmountContainer */}
             <div className="flex items-center font-bold">
               {/* Remove */}

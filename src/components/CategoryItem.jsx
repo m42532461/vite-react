@@ -7,7 +7,7 @@ const CategoryItem = ({ item }) => {
       <img
         src={item.img}
         alt={item.title}
-        className="w-full h-full object-cover "
+        className="w-full sm:h-[40vh] md:h-full h-[20vh] object-cover "
       />
       {/* Info */}
       <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center flex-col">

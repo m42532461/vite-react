@@ -13,11 +13,13 @@ const ProductList = () => {
       <h1 className="m-[20px]">Dresses</h1>
       {/* FilterContainer */}
       <div className="flex justify-between">
-        <div className="m-[20px]">
-          <span className="text-[20px] font-medium mr-[20px]">
+        {/* Filter */}
+        <div className="mx-[20px] flex flex-col md:flex-row md:m-[20px] items-center">
+          {/* FilterText */}
+          <span className="text-[20px] font-medium  md:mr-[20px]">
             Filter Products:
           </span>
-          <select className="p-[10px] mr-[20px]">
+          <select className="p-[10px] my-[10px] md:my-[0px] md:mr-[20px]">
             <option disabled selected>
               Color
             </option>
@@ -28,7 +30,7 @@ const ProductList = () => {
             <option>Yellow</option>
             <option>Green</option>
           </select>
-          <select className="p-[10px] mr-[20px]">
+          <select className="p-[10px] my-[10px] md:my-[0px] md:mr-[20px]">
             <option disabled selected>
               Size
             </option>
@@ -39,11 +41,13 @@ const ProductList = () => {
             <option>XL</option>
           </select>
         </div>
-        <div className="m-[20px]">
-          <span className="text-[20px] font-medium mr-[20px]">
+        {/* Filter */}
+        <div className="mx-[20px] flex flex-col md:flex-row md:m-[20px] items-center">
+          {/* FilterText */}
+          <span className="text-[20px] font-medium  md:mr-[20px]">
             Sort Products:
           </span>
-          <select className="p-[10px] mr-[20px]">
+          <select className="p-[10px] my-[10px] md:my-[0px] md:mr-[20px]">
             <option selected>Newest</option>
             <option>Price(asc)</option>
             <option>Price(desc)</option>

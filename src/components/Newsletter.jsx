@@ -7,11 +7,11 @@ const Newsletter = () => {
       {/* Title */}
       <h1 className="text-[70px] mb-[20px]">Newsletter</h1>
       {/* Description */}
-      <div className="text-[24px] mb-[20px] font-extralight">
+      <div className="text-[24px] mb-[20px] font-extralight text-center">
         Get timely updates from your favorite products
       </div>
       {/* InputContainer */}
-      <div className="w-1/2 h-[40px] bg-white flex justify-between border-gray-300 border">
+      <div className="sm:w-1/2 w-[80%] h-[40px] bg-white flex justify-between border-gray-300 border">
         {/* Input */}
         <input placeholder="Your email" className="flex-[8] pl-[20px]"></input>
         {/* Button */}

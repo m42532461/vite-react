@@ -10,7 +10,7 @@ const Login = () => {
       }}
     >
       {/* Wrapper */}
-      <div className="p-[20px] w-1/4 bg-white">
+      <div className="p-[20px] w-3/4 md:w-1/4 bg-white">
         <h1 className="text-[24px] font-light">SIGN IN</h1>
         <form className="flex flex-col">
           <input

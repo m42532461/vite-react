@@ -10,7 +10,7 @@ const Register = () => {
       }}
     >
       {/* Wrapper */}
-      <div className="p-[20px] w-2/5 bg-white">
+      <div className="p-[20px] w-3/4 md:w-2/5 bg-white">
         <h1 className="text-[24px] font-light">CREATE AN ACCOUNT</h1>
         <form className="flex flex-wrap">
           <input

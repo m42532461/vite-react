@@ -10,7 +10,7 @@ const Cart = () => {
     <div>
       <Navbar />
       <Announcement />
-      <div className="p-[20px]">
+      <div className="md:p-[20px] p-[10px]">
         <h1 className=" font-light text-center">YOUR BAG</h1>
         {/* Top */}
         <div className="flex items-center justify-between p-[20px]">
@@ -18,7 +18,7 @@ const Cart = () => {
             CONTINUE SHOPPING
           </button>
           {/* TopTexts */}
-          <div className="">
+          <div className="hidden md:block">
             <span className="underline cursor-pointer mx-[10px]">
               Shopping Bag(2)
             </span>
@@ -31,11 +31,11 @@ const Cart = () => {
           </button>
         </div>
         {/* Bottom */}
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-col md:flex-row">
           {/* Info */}
           <div className="flex-[3]">
             {/* Product */}
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-col md:flex-row">
               {/* ProductDetail */}
               <div className="flex-[2] flex">
                 <img
@@ -67,18 +67,22 @@ const Cart = () => {
                 <div className="flex items-center">
                   <AddIcon />
                   {/* ProductAmount */}
-                  <div className="text-[24px] m-[5px]">2</div>
+                  <div className="text-[24px] md:mx-[5px] my-[5px] mx-[15px]">
+                    2
+                  </div>
                   <RemoveIcon />
                 </div>
                 {/* ProductPrice */}
-                <div className="text-[30px] font-extralight">$ 30</div>
+                <div className="text-[30px] font-extralight mb-5 md:mb-0">
+                  $ 30
+                </div>
               </div>
             </div>
 
             <hr className="bg-[#eee] h-[1px]" />
 
             {/* Product */}
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-col md:flex-row">
               {/* ProductDetail */}
               <div className="flex-[2] flex">
                 <img
@@ -110,11 +114,15 @@ const Cart = () => {
                 <div className="flex items-center">
                   <AddIcon />
                   {/* ProductAmount */}
-                  <div className="text-[24px] m-[5px]">2</div>
+                  <div className="text-[24px] md:mx-[5px] my-[5px] mx-[15px]">
+                    2
+                  </div>
                   <RemoveIcon />
                 </div>
                 {/* ProductPrice */}
-                <div className="text-[30px] font-extralight">$ 30</div>
+                <div className="text-[30px] font-extralight mb-5 md:mb-0">
+                  $ 30
+                </div>
               </div>
             </div>
           </div>

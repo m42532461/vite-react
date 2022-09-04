@@ -8,7 +8,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 const Footer = () => {
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       {/* Left */}
       <div className="flex-1 flex flex-col p-[20px]">
         {/* Logo */}
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
       </div>
       {/* Center */}
-      <div className="flex-1 p-[20px]">
+      <div className="flex-1 p-[20px] hidden md:block">
         {/* Title */}
         <h3 className="mb-[30px] text-md font-semibold">Useful Links</h3>
         {/* List */}
@@ -55,7 +55,7 @@ const Footer = () => {
         </ul>
       </div>
       {/* Right */}
-      <div className="flex-1 p-[20px]">
+      <div className="flex-1 p-[20px] bg-[#fff8f8] md:bg-white">
         {/* Title */}
         <h3 className="mb-[30px] text-md font-semibold">Useful Links</h3>
         {/* ContactItem */}
