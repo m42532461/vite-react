@@ -2,6 +2,7 @@ import React from "react";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { Link } from "react-router-dom";
 const Product = ({ product }) => {
   return (
     <div className="flex flex-1 m-[5px] min-w-[280px] h-[350px] items-center justify-center bg-[#f5fdfd] relative group">
@@ -17,7 +18,9 @@ const Product = ({ product }) => {
         </div>
         {/* Icon */}
         <div className="w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center m-[10px] hover:bg-[#e9f5f5] hover:scale-110 ease-linear duration-500">
-          <SearchOutlinedIcon />
+          <Link to={`/product/${product._id}`}>
+            <SearchOutlinedIcon />
+          </Link>
         </div>
         {/* Icon */}
         <div className="w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center m-[10px] hover:bg-[#e9f5f5] hover:scale-110 ease-linear duration-500">

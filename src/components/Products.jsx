@@ -1,12 +1,60 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { popularProducts } from "../data";
 import Product from "./Product";
-const Products = () => {
+const Products = ({ cat, filters, sort }) => {
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          cat
+            ? `http://localhost:5000/api/products?category=${cat}`
+            : "http://localhost:5000/api/products"
+        );
+        setProducts(res.data);
+      } catch (error) {}
+    };
+    getProducts();
+  }, [cat]);
+
+  useEffect(() => {
+    cat &&
+      setFilteredProducts(
+        products.filter((item) =>
+          Object.entries(filters).every(([key, value]) =>
+            item[key].includes(value)
+          )
+        )
+      );
+  }, [cat, filters]);
+
+  useEffect(() => {
+    if (sort === "newset") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.createdAt - b.createdAt)
+      );
+    } else if (sort === "asc") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.price - b.price)
+      );
+    } else {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => b.price - a.price)
+      );
+    }
+  }, []);
   return (
     <div className="p-[20px] flex flex-wrap justify-between">
-      {popularProducts.map((product) => (
-        <Product product={product} key={product.id} />
-      ))}
+      {cat
+        ? filteredProducts.map((product) => (
+            <Product product={product} key={product.id} />
+          ))
+        : products.map((product) => (
+            <Product product={product} key={product.id} />
+          ))}
     </div>
   );
 };
