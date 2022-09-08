@@ -5,7 +5,6 @@ import Product from "./Product";
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -29,10 +28,10 @@ const Products = ({ cat, filters, sort }) => {
           )
         )
       );
-  }, [cat, filters]);
+  }, [cat, filters, products]);
 
   useEffect(() => {
-    if (sort === "newset") {
+    if (sort === "newest") {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => a.createdAt - b.createdAt)
       );
@@ -45,16 +44,16 @@ const Products = ({ cat, filters, sort }) => {
         [...prev].sort((a, b) => b.price - a.price)
       );
     }
-  }, []);
+  }, [sort]);
   return (
     <div className="p-[20px] flex flex-wrap justify-between">
       {cat
         ? filteredProducts.map((product) => (
             <Product product={product} key={product.id} />
           ))
-        : products.map((product) => (
-            <Product product={product} key={product.id} />
-          ))}
+        : products
+            .slice(0, 8)
+            .map((product) => <Product product={product} key={product.id} />)}
     </div>
   );
 };

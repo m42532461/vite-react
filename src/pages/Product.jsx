@@ -7,9 +7,10 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
+import axios from "axios";
 const Product = () => {
   const location = useLocation();
-  const id = location.split("/")[2];
+  const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
@@ -27,7 +28,7 @@ const Product = () => {
 
   const handleQuantity = (type) => {
     if (type === "dec") {
-      quantity > 0 && setQuantity(quantity - 1);
+      quantity > 1 && setQuantity(quantity - 1);
     } else {
       setQuantity(quantity + 1);
     }
