@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -6,8 +6,36 @@ import Navbar from "../components/Navbar";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
+import { userRequest } from "../requestMethods";
+import { useNavigate } from "react-router-dom";
+
+// const KEY = process.env.REACT_APP_STRIPE;
+const KEY =
+  "pk_test_51LULmeCxYIepcDmTfw3UXZOIIuUWmEbgDU6rSd34WokgQIobYXCUdMuRD5F2ytKmYepatHRmBHV9pOB9nhn1iKOT00LhYwEpx1";
+
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const [stripeToken, setStripeToken] = useState(null);
+  const navigate = useNavigate();
+  const onToken = (token) => {
+    setStripeToken(token);
+  };
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = userRequest.post("/checkout/payment", {
+          tokenId: stripeToken.id,
+          amount: cart.total * 100,
+        });
+        navigate("/success", { data: res.data });
+      } catch (error) {}
+    };
+    stripeToken && cart.total >= 1 && makeRequest();
+  }, [stripeToken, navigate, cart.total]);
+
+  console.log(stripeToken);
   return (
     <div>
       <Navbar />
@@ -87,7 +115,7 @@ const Cart = () => {
             {/* SummaryItem */}
             <div className="my-[30px] flex justify-between">
               <span>Subtotal</span>
-              <span>$ {product.total}</span>
+              <span>$ {cart.total}</span>
             </div>
             {/* SummaryItem */}
             <div className="my-[30px] flex justify-between">
@@ -102,11 +130,22 @@ const Cart = () => {
             {/* SummaryItem */}
             <div className="my-[30px] flex justify-between font-medium text-[24px]">
               <span>Total</span>
-              <span>$ {product.total}</span>
+              <span>$ {cart.total}</span>
             </div>
-            <button className="w-full h-12 bg-black text-white font-semibold">
-              Checkout
-            </button>
+            <StripeCheckout
+              name="Lama Shop"
+              image=""
+              billingAddress
+              shippingAddress
+              description={`Your total is $${cart.total}`}
+              amount={cart.total * 100}
+              token={onToken}
+              stripeKey={KEY}
+            >
+              <button className="w-full h-12 bg-black text-white font-semibold">
+                CHECKOUT NOW
+              </button>
+            </StripeCheckout>
           </div>
         </div>
       </div>
