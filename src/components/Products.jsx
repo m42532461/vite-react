@@ -5,6 +5,7 @@ import Product from "./Product";
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -45,6 +46,7 @@ const Products = ({ cat, filters, sort }) => {
       );
     }
   }, [sort]);
+  console.log(products);
   return (
     <div className="p-[20px] flex flex-wrap justify-between">
       {cat

@@ -7,7 +7,9 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
-import axios from "axios";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
+
 const Product = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -15,6 +17,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -36,6 +39,7 @@ const Product = () => {
 
   const handleClick = () => {
     // update cart
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
 
   return (
@@ -47,7 +51,7 @@ const Product = () => {
         <div className="flex-1 ">
           <img
             className="w-full md:h-[90vh] h-[40vh] object-cover "
-            src={product.img}
+            src={product?.img}
             alt=""
           />
         </div>
