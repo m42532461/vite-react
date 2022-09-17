@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Success from "./pages/Success";
 import { useSelector } from "react-redux";
+import Account from "./pages/Account";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -23,6 +24,10 @@ const App = () => {
         <Route
           path="/register"
           element={user ? <Navigate to="/" /> : <Register />}
+        />
+        <Route
+          path="/account"
+          element={user ? <Account /> : <Navigate to="/login" />}
         />
       </Routes>
     </BrowserRouter>

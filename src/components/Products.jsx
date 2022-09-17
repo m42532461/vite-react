@@ -51,11 +51,11 @@ const Products = ({ cat, filters, sort }) => {
     <div className="p-[20px] flex flex-wrap justify-between">
       {cat
         ? filteredProducts.map((product) => (
-            <Product product={product} key={product.id} />
+            <Product product={product} key={product._id} />
           ))
         : products
             .slice(0, 8)
-            .map((product) => <Product product={product} key={product.id} />)}
+            .map((product) => <Product product={product} key={product._id} />)}
     </div>
   );
 };

@@ -1,11 +1,21 @@
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
+import { logout } from "../redux/apiCalls";
+import { useState } from "react";
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
+  const user = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
+  const [reload, setReload] = useState(0);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    logout(dispatch);
+    setReload((prev) => prev + 1);
+    navigate("/");
+  };
 
   return (
     <div className="sm:h-[60px] h-[50px]">
@@ -29,18 +39,38 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="sm:flex-1 flex-[2] flex items-center sm:justify-end justify-center">
-          <div
-            className="sm:text-[14px] text-[12px] cursor-pointer sm:ml-[25px] ml-[10px]"
-            onClick={() => navigate("/register")}
-          >
-            REGISTER
-          </div>
-          <div
-            className="sm:text-[14px] text-[12px] cursor-pointer sm:ml-[25px] ml-[10px]"
-            onClick={() => navigate("/login")}
-          >
-            SIGN IN
-          </div>
+          {!user && (
+            <div
+              className="sm:text-[14px] text-[12px] cursor-pointer sm:ml-[25px] ml-[10px]"
+              onClick={() => navigate("/register")}
+            >
+              REGISTER
+            </div>
+          )}
+          {!user && (
+            <div
+              className="sm:text-[14px] text-[12px] cursor-pointer sm:ml-[25px] ml-[10px]"
+              onClick={() => navigate("/login")}
+            >
+              SIGN IN
+            </div>
+          )}
+          {user && (
+            <div
+              className="sm:text-[14px] text-[12px] cursor-pointer sm:ml-[25px] ml-[10px]"
+              onClick={() => navigate("/account")}
+            >
+              My Account
+            </div>
+          )}
+          {user && (
+            <div
+              className="sm:text-[14px] text-[12px] cursor-pointer sm:ml-[25px] ml-[10px]"
+              onClick={handleLogout}
+            >
+              LOGOUT
+            </div>
+          )}
           <div className="sm:text-[14px] text-[12px] cursor-pointer sm:ml-[25px] ml-[10px]">
             <Badge
               badgeContent={quantity}
