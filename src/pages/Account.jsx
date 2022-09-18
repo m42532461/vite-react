@@ -18,6 +18,26 @@ import {
 import app from "../firebase.js";
 import { updateUser } from "../redux/apiCalls";
 import FileBase64 from "react-file-base64";
+
+/* 
+_id(pin):"631ed43fcd3057b85346714c"
+username(pin):"test"
+email(pin):"test@gmail.com"
+isAdmin(pin):true
+createdAt(pin):"2022-08-12T06:39:59.069Z"
+updatedAt(pin):"2022-09-17T12:50:05.487Z"
+__v(pin):0
+birth(pin):"19996"
+phone(pin):"0975336305"
+address(pin):"Taiwan Taiwan"
+img(pin):"https://firebasestorage.googleapis.com/v0/b/shop-abd06.appspot.com/o/16634188991331663314092001Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png?alt=media&token=608fa9e9-7e2d-4fa7-a4ee-f1033c946652"
+accessToken(pin):"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWVkNDNmY2QzMDU3Yjg1MzQ2NzE0YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2MzQ3MDYxMSwiZXhwIjoxNjYzNzI5ODExfQ.VvK24TmAAen6cSpLJHzKfAS01n29UoMTuvPiGXI1GyQ"
+isFetching(pin):false
+error(pin):true 
+
+
+*/
+
 const Account = () => {
   const UseFocus = () => {
     const htmlElRef = useRef(null);
@@ -57,8 +77,8 @@ const Account = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    let updatedUserInfo = input;
-
+    let updatedUserInfo = { ...input, _id: user._id };
+    console.log(updatedUserInfo);
     if (!file) {
       console.log("!file");
       console.log(updatedUserInfo);

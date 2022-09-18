@@ -46,7 +46,6 @@ const Products = ({ cat, filters, sort }) => {
       );
     }
   }, [sort]);
-  console.log(products);
   return (
     <div className="p-[20px] flex flex-wrap justify-between">
       {cat

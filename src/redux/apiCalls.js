@@ -42,14 +42,14 @@ export const logout = async (dispatch) => {
   }
 };
 
-export const updateUser = async (id, user, dispatch) => {
+export const updateUser = async (id, updatedUser, dispatch) => {
   dispatch(updateUserStart());
   try {
     console.log("update");
     console.log(id);
-    console.log(user);
+    console.log(updatedUser);
 
-    const res = await userRequest.put(`/users/${id}`, user);
+    const res = await userRequest.put(`/users/${id}`, updatedUser);
 
     dispatch(updateUserSuccess(res.data));
   } catch (error) {
