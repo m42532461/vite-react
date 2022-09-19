@@ -8,6 +8,9 @@ import {
   updateUserStart,
   updateUserSuccess,
   updateUserFailure,
+  verifyStart,
+  verifySuccess,
+  verifyFailure,
 } from "./userRedux";
 import { publicRequest, userRequest } from "../requestMethods";
 
@@ -54,5 +57,38 @@ export const updateUser = async (id, updatedUser, dispatch) => {
     dispatch(updateUserSuccess(res.data));
   } catch (error) {
     dispatch(updateUserFailure());
+  }
+};
+
+export const sendMail = async (uuid, username) => {
+  try {
+    console.log("send mail");
+    console.log("uuid:" + uuid);
+
+    const res = await publicRequest.post(`/mail/certification`, {
+      uuid,
+      username,
+    });
+    console.log("verify code:" + res.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const verifyCode = async (dispatch, uuid, verifyCode) => {
+  try {
+    console.log("verify code");
+    console.log("uuid:" + uuid);
+    dispatch(verifyStart());
+
+    const res = await publicRequest.post(`/auth/uuid`, {
+      uuid,
+      verifyCode,
+    });
+    dispatch(verifySuccess(res.data));
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    dispatch(verifyFailure());
   }
 };

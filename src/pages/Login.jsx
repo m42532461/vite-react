@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
-import { login } from "../redux/apiCalls";
+import { login, sendMail, verifyCode } from "../redux/apiCalls";
 import { v4 as uuidv4 } from "uuid";
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,11 +11,14 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [inputError, setInputError] = useState(false);
   const [isForgotPassword, setIsForgotPassword] = useState(false);
+  const [isSend, setIsSend] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [uuid, setuuid] = useState(null);
   const [code, setCode] = useState(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const verify = useSelector((state) => state.user.verify);
   const { isFetching, error } = useSelector((state) => state.user);
 
   const handleSendMail = (e) => {
@@ -24,7 +27,8 @@ const Login = () => {
       setInputError(true);
       return;
     }
-    // send mail
+    setIsSend(true);
+    sendMail(uuid, username);
   };
 
   const handleClick = (e) => {
@@ -37,7 +41,9 @@ const Login = () => {
       login(dispatch, { username, password });
       navigate("/");
     } else {
+      verifyCode(dispatch, uuid, code);
       // reset password
+      verify && console.log("reset");
     }
   };
 
@@ -54,7 +60,9 @@ const Login = () => {
       >
         {/* Wrapper */}
         <div className="p-[20px] w-3/4 md:w-1/4 bg-white">
-          <h1 className="text-[24px] font-light">SIGN IN</h1>
+          <h1 className="text-[24px] font-light">
+            {isSend ? "RESET PASSWORD" : "SIGN IN"}
+          </h1>
           <form className="flex flex-col">
             <input
               className="flex-1 min-w-2/5 my-[10px] p-[10px]"
@@ -64,17 +72,7 @@ const Login = () => {
                 if (password && e.target.value) setInputError(false);
               }}
             />
-            {!isForgotPassword && (
-              <input
-                className="flex-1 min-w-2/5 my-[10px] p-[10px]"
-                placeholder="password"
-                type="password"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  if (e.target.value && username) setInputError(false);
-                }}
-              />
-            )}
+
             {isForgotPassword && (
               <>
                 <input
@@ -83,31 +81,59 @@ const Login = () => {
                   type="email"
                   onChange={(e) => {
                     setEmail(e.target.value);
-                    if (e.target.value && username) {
-                      setInputError(false);
-                    }
-                  }}
-                />
-                <input
-                  className="flex-1 min-w-2/5 my-[10px] p-[10px]"
-                  placeholder="verify code"
-                  type="text"
-                  onChange={(e) => {
-                    setCode(e.target.value);
-                    if (e.target.value && username) {
+                    if (e.target.value && username && code) {
                       setInputError(false);
                     }
                   }}
                 />
                 <button
                   onClick={handleSendMail}
+                  disabled={isSend}
                   className={`w-1/2 py-[5px] bg-gray-600 text-white cursor-pointer mb-[10px] hover:bg-teal-600 ${
                     isFetching && "cursor-not-allowed bg-green-200"
                   }`}
                 >
                   send mail to get verify code
                 </button>
+                {isSend && (
+                  <input
+                    className="flex-1 min-w-2/5 my-[10px] p-[10px]"
+                    placeholder="verify code"
+                    type="text"
+                    onChange={(e) => {
+                      setCode(e.target.value);
+                      if (e.target.value && username && email) {
+                        setInputError(false);
+                      }
+                    }}
+                  />
+                )}
               </>
+            )}
+            {(!isForgotPassword || isSend) && (
+              <input
+                className="flex-1 min-w-2/5 my-[10px] p-[10px]"
+                placeholder="password"
+                type="password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  if (e.target.value && (isSend ? confirmPassword : username))
+                    setInputError(false);
+                }}
+              />
+            )}
+            {isForgotPassword && isSend && (
+              <input
+                className="flex-1 min-w-2/5 my-[10px] p-[10px]"
+                placeholder="confirm password"
+                type="text"
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                  if (e.target.value && password) {
+                    setInputError(false);
+                  }
+                }}
+              />
             )}
             <span className="text-[12px] my-[20px]"></span>
             <button
@@ -117,7 +143,7 @@ const Login = () => {
                 isFetching && "cursor-not-allowed bg-green-200"
               }`}
             >
-              {isForgotPassword ? "VERIFY" : "LOGIN"}
+              {isSend ? "RESET" : "LOGIN"}
             </button>
             <span className={`text-red-600 ${inputError ? "" : "hidden"}`}>
               Something went wrong
