@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import SendIcon from "@mui/icons-material/Send";
+import { emailSubscribe } from "../redux/apiCalls";
+import { useDispatch } from "react-redux";
 const Newsletter = () => {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    emailSubscribe(dispatch, email);
+  };
   return (
     // Container
     <div className="h-[60vh] bg-[#fcf5f5] flex items-center justify-center flex-col">
@@ -13,9 +21,16 @@ const Newsletter = () => {
       {/* InputContainer */}
       <div className="sm:w-1/2 w-[80%] h-[40px] bg-white flex justify-between border-gray-300 border">
         {/* Input */}
-        <input placeholder="Your email" className="flex-[8] pl-[20px]"></input>
+        <input
+          placeholder="Your email"
+          className="flex-[8] pl-[20px]"
+          onChange={(e) => setEmail(e.target.value)}
+        ></input>
         {/* Button */}
-        <button className="flex-1 bg-teal-600 text-white">
+        <button
+          onClick={handleSubscribe}
+          className="flex-1 bg-teal-600 text-white"
+        >
           <SendIcon />
         </button>
       </div>

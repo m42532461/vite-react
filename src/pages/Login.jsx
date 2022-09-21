@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
-import { login, sendMail, verifyCode } from "../redux/apiCalls";
+import { login, resetPassword, sendMail, verifyCode } from "../redux/apiCalls";
 import { v4 as uuidv4 } from "uuid";
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -43,7 +43,7 @@ const Login = () => {
     } else {
       verifyCode(dispatch, uuid, code);
       // reset password
-      verify && console.log("reset");
+      verify && resetPassword(dispatch, username, password, confirmPassword);
     }
   };
 

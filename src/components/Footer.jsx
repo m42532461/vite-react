@@ -12,7 +12,7 @@ const Footer = () => {
       {/* Left */}
       <div className="flex-1 flex flex-col p-[20px]">
         {/* Logo */}
-        <h1 className="text-[30px] font-bold">LAMA.</h1>
+        <h1 className="text-[30px] font-bold">MYSHOP.</h1>
         {/* Desc */}
         <p className="my-[20px] ">
           There are many variations of passages of Lorem Ipsum available, but

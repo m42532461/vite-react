@@ -133,7 +133,7 @@ const Cart = () => {
               <span>$ {cart.total}</span>
             </div>
             <StripeCheckout
-              name="Lama Shop"
+              name="My Shop"
               image=""
               billingAddress
               shippingAddress

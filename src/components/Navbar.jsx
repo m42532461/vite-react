@@ -35,7 +35,7 @@ const Navbar = () => {
             className="font-bold sm:text-3xl text-[24px] cursor-pointer"
             onClick={() => navigate("/")}
           >
-            LAMA.
+            MYSHOP.
           </h1>
         </div>
         <div className="sm:flex-1 flex-[2] flex items-center sm:justify-end justify-center">

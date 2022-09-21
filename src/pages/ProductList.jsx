@@ -19,6 +19,11 @@ const ProductList = () => {
       [e.target.name]: value,
     });
   };
+
+  const handleClear = (e) => {
+    e.preventDefault();
+    setFilters({});
+  };
   return (
     <div>
       <Navbar />
@@ -61,6 +66,12 @@ const ProductList = () => {
             <option>L</option>
             <option>XL</option>
           </select>
+          <button
+            className=" hover:bg-teal-600 hover:text-white p-1 rounded-sm"
+            onClick={handleClear}
+          >
+            CLEAR
+          </button>
         </div>
         {/* Filter */}
         <div className="mx-[20px] flex flex-col md:flex-row md:m-[20px] items-center">

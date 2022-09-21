@@ -11,8 +11,10 @@ import {
   verifyStart,
   verifySuccess,
   verifyFailure,
+  subscribeSuccess,
 } from "./userRedux";
 import { publicRequest, userRequest } from "../requestMethods";
+import { useSelector } from "react-redux";
 
 export const register = async (dispatch, user) => {
   dispatch(loginStart());
@@ -90,5 +92,49 @@ export const verifyCode = async (dispatch, uuid, verifyCode) => {
   } catch (error) {
     console.log(error);
     dispatch(verifyFailure());
+  }
+};
+
+export const resetPassword = async (
+  dispatch,
+  username,
+  password,
+  confirmPassword
+) => {
+  try {
+    console.log("resetPassword");
+    console.log(id);
+
+    const res = await publicRequest.put(`/users/reset/${username}`, {
+      password,
+      confirmPassword,
+    });
+    console.log(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const emailSubscribe = async (dispatch, email) => {
+  // if (useSelector((state) => state.user.subscribeTimes > 5)) {
+  //   console.log("Try later");
+  //   return;
+  // }
+  try {
+    const res = await publicRequest.post("/mail/subscribe", { email });
+    console.log(res.data);
+    dispatch(subscribeSuccess);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const likeProduct = async (dispatch, email) => {
+  try {
+    const res = await publicRequest.post("/mail/subscribe", { email });
+    console.log(res.data);
+    dispatch(subscribeSuccess);
+  } catch (error) {
+    console.log(error);
   }
 };

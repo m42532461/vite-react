@@ -12,6 +12,9 @@ import Account from "./pages/Account";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
+  // no user => set cookie to repersent the client
+  // login => clear the cookie (backend also)
+  // logout => clear the localStorage and set a new cookie
   return (
     <BrowserRouter>
       <Routes>

@@ -5,7 +5,6 @@ import Product from "./Product";
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -33,8 +32,8 @@ const Products = ({ cat, filters, sort }) => {
 
   useEffect(() => {
     if (sort === "newest") {
-      setFilteredProducts((prev) =>
-        [...prev].sort((a, b) => a.createdAt - b.createdAt)
+      setFilteredProducts(() =>
+        products.sort((a, b) => a.createdAt - b.createdAt)
       );
     } else if (sort === "asc") {
       setFilteredProducts((prev) =>

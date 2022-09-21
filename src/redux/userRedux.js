@@ -7,6 +7,8 @@ const userSlice = createSlice({
     isFetching: false,
     error: false,
     verify: null,
+    verifyTimes: 0,
+    subscribeTimes: 0,
   },
   reducers: {
     loginStart: (state) => {
@@ -49,11 +51,29 @@ const userSlice = createSlice({
     verifySuccess: (state) => {
       state.isFetching = false;
       state.verify = action.payload;
+      state.verifyTimes++;
     },
     verifyFailure: (state) => {
       state.isFetching = false;
       state.error = true;
+      state.verifyTimes++;
     },
+    subscribeSuccess: (state) => {
+      state.subscribeTimes = state.subscribeTimes + 1;
+    },
+    // resetStart: (state) => {
+    //   state.isFetching = true;
+    // },
+    // resetSuccess: (state) => {
+    //   state.isFetching = false;
+    //   state.verify = action.payload;
+    //   state.verifyTimes++;
+    // },
+    // resetFailure: (state) => {
+    //   state.isFetching = false;
+    //   state.error = true;
+    //   state.verifyTimes++;
+    // },
   },
 });
 
@@ -70,5 +90,6 @@ export const {
   verifyStart,
   verifySuccess,
   verifyFailure,
+  subscribeSuccess,
 } = userSlice.actions;
 export default userSlice.reducer;
