@@ -1,3 +1,4 @@
+// import Pagination from "../components/Pagination";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { popularProducts } from "../data";
@@ -5,6 +6,13 @@ import Product from "./Product";
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [page, setPage] = useState("1");
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setPage(e.target.value);
+  };
+  console.log(page);
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -52,8 +60,9 @@ const Products = ({ cat, filters, sort }) => {
             <Product product={product} key={product._id} />
           ))
         : products
-            .slice(0, 8)
+            // .slice(0, 8)
             .map((product) => <Product product={product} key={product._id} />)}
+      {/* <Pagination /> */}
     </div>
   );
 };
