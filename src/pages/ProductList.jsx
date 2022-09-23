@@ -1,16 +1,31 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
-
+import { getProducts } from "../redux/apiCalls";
+import { fetchAllProduct } from "../redux/productRedux";
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 const ProductList = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cat = location.pathname.split("/")[2];
   const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState("newest");
+
+  const query = useQuery();
+  const page = query.get("page") || 1;
+  const sort = query.get("sort") || "newset";
+
+  useEffect(() => {
+    getProducts(dispatch, cat, page, sort);
+  }, [page, sort, cat]);
 
   const handleFilters = (e) => {
     const value = e.target.value;
@@ -18,6 +33,10 @@ const ProductList = () => {
       ...filters,
       [e.target.name]: value,
     });
+  };
+
+  const handleSort = (e) => {
+    navigate(`${location.pathname}?sort=${e.target.value}&page=${page}`);
   };
 
   const handleClear = (e) => {
@@ -80,7 +99,7 @@ const ProductList = () => {
             Sort Products:
           </span>
           <select
-            onChange={(e) => setSort(e.target.value)}
+            onChange={handleSort}
             className="p-[10px] my-[10px] md:my-[0px] md:mr-[20px]"
           >
             <option defaultValue value="newest">
@@ -91,7 +110,7 @@ const ProductList = () => {
           </select>
         </div>
       </div>
-      <Products cat={cat} filters={filters} sort={sort} />
+      <Products cat={cat} filters={filters} sort={sort} page={page} />
       <Newsletter />
       <Footer />
     </div>

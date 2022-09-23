@@ -15,7 +15,7 @@ const Slider = () => {
 
   return (
     // Container
-    <div className="w-full h-[100vh] hidden sm:flex relative overflow-hidden ">
+    <div className="w-full h-[100vh] hidden xl:flex relative overflow-hidden ">
       <div
         className="rounded-full w-[50px] h-[50px] bg-[#fff7f7] opacity-50 flex justify-center items-center absolute top-0 bottom-0 m-auto left-[10px] cursor-pointer z-[2]"
         onClick={() => handleClick("left")}

@@ -1,40 +1,41 @@
-// /* eslint-disable react/jsx-props-no-spreading */
-// import { Pagination, PaginationItem } from "@mui/material";
-// import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
+/* eslint-disable react/jsx-props-no-spreading */
+import { Pagination, PaginationItem } from "@mui/material";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-// import { getPosts } from "../actions/posts";
-// import useStyles from "./styles";
+import { getProducts } from "../redux/apiCalls";
 
-// const Paginate = ({ page }) => {
-//   const { numberOfPages } = useSelector((state) => state.posts);
-//   const dispatch = useDispatch();
+const Paginate = ({ page, cat, sort }) => {
+  const { numberOfPages } = useSelector((state) => state.product);
+  const dispatch = useDispatch();
 
-//   const classes = useStyles();
+  useEffect(() => {
+    if (page) {
+      //   getProducts(dispatch, cat, page, sort);
+    }
+  }, [dispatch, page]);
 
-//   useEffect(() => {
-//     if (page) {
-//       dispatch(getPosts(page));
-//     }
-//   }, [dispatch, page]);
+  return (
+    <Pagination
+      //   classes={{ ul: classes.ul }}
+      count={numberOfPages}
+      page={Number(page) || 1}
+      variant="outlined"
+      color="primary"
+      renderItem={(item) => (
+        <PaginationItem
+          {...item}
+          component={Link}
+          to={
+            cat
+              ? `/products/${cat}?page=${item.page}&sort=${sort}`
+              : `/products?page=${item.page}&sort=${sort}`
+          }
+        />
+      )}
+    />
+  );
+};
 
-//   return (
-//     <Pagination
-//       classes={{ ul: classes.ul }}
-//       count={numberOfPages}
-//       page={Number(page) || 1}
-//       variant="outlined"
-//       color="primary"
-//       renderItem={(item) => (
-//         <PaginationItem
-//           {...item}
-//           component={Link}
-//           to={`/posts?page=${item.page}`}
-//         />
-//       )}
-//     />
-//   );
-// };
-
-// export default Paginate;
+export default Paginate;

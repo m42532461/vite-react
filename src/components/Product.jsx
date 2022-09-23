@@ -15,7 +15,7 @@ const Product = ({ product }) => {
     dispatch(addProduct({ ...product, quantity, color, size }));
   };
   return (
-    <div className="flex flex-1 m-[5px] min-w-[280px] h-[350px] items-center justify-center bg-[#f5fdfd] relative group">
+    <div className="flex flex-1 m-[5px] max-w-[350px] min-w-[280px] h-[350px] items-center justify-center bg-[#f5fdfd] relative group">
       {/* Circle */}
       <div className="rounded-full w-[200px] h-[200px] bg-white absolute"></div>
       {/* Image */}

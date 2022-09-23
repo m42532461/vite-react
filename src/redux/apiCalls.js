@@ -13,8 +13,9 @@ import {
   verifyFailure,
   subscribeSuccess,
 } from "./userRedux";
+import { startLoading, fetchAllProduct, endLoading } from "./productRedux";
+
 import { publicRequest, userRequest } from "../requestMethods";
-import { useSelector } from "react-redux";
 
 export const register = async (dispatch, user) => {
   dispatch(loginStart());
@@ -130,10 +131,26 @@ export const emailSubscribe = async (dispatch, email) => {
 };
 
 export const likeProduct = async (dispatch, email) => {
+  // try {
+  //   const res = await publicRequest.post("/mail/subscribe", { email });
+  //   console.log(res.data);
+  //   dispatch(subscribeSuccess);
+  // } catch (error) {
+  //   console.log(error);
+  // }
+};
+
+export const getProducts = async (dispatch, cat, page, sort) => {
+  dispatch(startLoading());
   try {
-    const res = await publicRequest.post("/mail/subscribe", { email });
+    const res = await publicRequest.get(
+      cat
+        ? `/products?category=${cat}&page=${page}&sort=${sort}`
+        : `/products?page=${page}&sort=${sort}`
+    );
     console.log(res.data);
-    dispatch(subscribeSuccess);
+    dispatch(fetchAllProduct(res.data));
+    dispatch(endLoading());
   } catch (error) {
     console.log(error);
   }
