@@ -1,3 +1,4 @@
+import { Pagination } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -8,7 +9,6 @@ import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
 import { getProducts } from "../redux/apiCalls";
-import { fetchAllProduct } from "../redux/productRedux";
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -64,12 +64,12 @@ const ProductList = () => {
             <option disabled defaultValue>
               Color
             </option>
-            <option>White</option>
-            <option>Black</option>
-            <option>Red</option>
-            <option>Blue</option>
-            <option>Yellow</option>
-            <option>Green</option>
+            <option>white</option>
+            <option>black</option>
+            <option>red</option>
+            <option>blue</option>
+            <option>yellow</option>
+            <option>green</option>
           </select>
           <select
             name="size"
@@ -111,6 +111,7 @@ const ProductList = () => {
         </div>
       </div>
       <Products cat={cat} filters={filters} sort={sort} page={page} />
+      <Pagination page={page} cat={cat} filters={filters} sort={sort} />
       <Newsletter />
       <Footer />
     </div>
