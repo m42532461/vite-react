@@ -142,11 +142,13 @@ export const likeProduct = async (dispatch, email) => {
 
 export const getProducts = async (dispatch, cat, page, sort) => {
   dispatch(startLoading());
+  const loadingPage = page || 1;
+  const loadingSort = sort || "newest";
   try {
     const res = await publicRequest.get(
       cat
-        ? `/products?category=${cat}&page=${page}&sort=${sort}`
-        : `/products?page=${page}&sort=${sort}`
+        ? `/products?category=${cat}&page=${loadingPage}&sort=${loadingSort}`
+        : `/products?page=${loadingPage}&sort=${loadingSort}`
     );
     console.log(res.data);
     dispatch(fetchAllProduct(res.data));

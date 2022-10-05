@@ -2,20 +2,28 @@ import React from "react";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addProduct } from "../redux/cartRedux";
 import { likeProduct } from "../redux/apiCalls";
 import { useDispatch } from "react-redux";
 const Product = ({ product }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleAdd = () => {
-    dispatch(addProduct({ ...product, quantity, color, size }));
+    dispatch(addProduct({ ...product, quantity: 1, color, size }));
   };
   const handleLike = () => {
     dispatch(addProduct({ ...product, quantity, color, size }));
   };
   return (
-    <div className="flex flex-1 m-[5px] max-w-[350px] min-w-[280px] h-[350px] items-center justify-center bg-[#f5fdfd] relative group">
+    <div
+      className="flex flex-1 m-[5px] max-w-[350px] min-w-[280px] h-[350px] items-center justify-center bg-[#f5fdfd] relative group"
+      onClick={(e) => {
+        if (e.target.nodeName !== "svg") {
+          navigate(`/product/${product._id}`);
+        }
+      }}
+    >
       {/* Circle */}
       <div className="rounded-full w-[200px] h-[200px] bg-white absolute"></div>
       {/* Image */}
