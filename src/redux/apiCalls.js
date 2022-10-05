@@ -150,7 +150,6 @@ export const getProducts = async (dispatch, cat, page, sort) => {
         ? `/products?category=${cat}&page=${loadingPage}&sort=${loadingSort}`
         : `/products?page=${loadingPage}&sort=${loadingSort}`
     );
-    console.log(res.data);
     dispatch(fetchAllProduct(res.data));
     dispatch(endLoading());
   } catch (error) {

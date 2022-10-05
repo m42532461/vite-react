@@ -10,10 +10,10 @@ const Product = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleAdd = () => {
-    dispatch(addProduct({ ...product, quantity: 1, color, size }));
+    dispatch(addProduct({ ...product, quantity: 1, color: null, size: null }));
   };
   const handleLike = () => {
-    dispatch(addProduct({ ...product, quantity, color, size }));
+    dispatch(addProduct({ ...product, quantity, color: null, size: null }));
   };
   return (
     <div

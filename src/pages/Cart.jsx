@@ -5,10 +5,11 @@ import Navbar from "../components/Navbar";
 
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from "react-router-dom";
+import { addProduct, removeProduct } from "../redux/cartRedux";
 
 // const KEY = process.env.REACT_APP_STRIPE;
 const KEY =
@@ -18,6 +19,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const onToken = (token) => {
     setStripeToken(token);
   };
@@ -29,8 +31,11 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: cart.total * 100,
         });
+        // clear cart
         navigate("/success", { data: res.data });
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
     stripeToken && cart.total >= 1 && makeRequest();
   }, [stripeToken, navigate, cart.total]);
@@ -66,7 +71,10 @@ const Cart = () => {
           <div className="flex-[3]">
             {/* Product */}
             {cart.products.map((product) => (
-              <div className="flex justify-between flex-col md:flex-row">
+              <div
+                className="flex justify-between flex-col md:flex-row"
+                key={product._id}
+              >
                 {/* ProductDetail */}
                 <div className="flex-[2] flex">
                   <img className="w-[200px]" src={product.img} alt="product" />
@@ -92,16 +100,38 @@ const Cart = () => {
                 <div className="flex-1 flex items-center justify-center flex-col">
                   {/* ProductAmountContainer */}
                   <div className="flex items-center">
-                    <AddIcon />
+                    <AddIcon
+                      onClick={() => {
+                        dispatch(
+                          addProduct({
+                            ...product,
+                            quantity: 1,
+                            color: product.color,
+                            size: product.size,
+                          })
+                        );
+                      }}
+                    />
                     {/* ProductAmount */}
                     <div className="text-[24px] md:mx-[5px] my-[5px] mx-[15px]">
                       {product.quantity}
                     </div>
-                    <RemoveIcon />
+                    <RemoveIcon
+                      onClick={() => {
+                        dispatch(
+                          removeProduct({
+                            ...product,
+                            quantity: 1,
+                            color: product.color,
+                            size: product.size,
+                          })
+                        );
+                      }}
+                    />
                   </div>
                   {/* ProductPrice */}
                   <div className="text-[30px] font-extralight mb-5 md:mb-0">
-                    $ {product.price * product.quantity}
+                    $ {Math.round(product.price * product.quantity * 100) / 100}
                   </div>
                 </div>
               </div>
@@ -115,7 +145,7 @@ const Cart = () => {
             {/* SummaryItem */}
             <div className="my-[30px] flex justify-between">
               <span>Subtotal</span>
-              <span>$ {cart.total}</span>
+              <span>$ {Math.round(cart.total * 100) / 100}</span>
             </div>
             {/* SummaryItem */}
             <div className="my-[30px] flex justify-between">
@@ -130,7 +160,7 @@ const Cart = () => {
             {/* SummaryItem */}
             <div className="my-[30px] flex justify-between font-medium text-[24px]">
               <span>Total</span>
-              <span>$ {cart.total}</span>
+              <span>$ {Math.round(cart.total * 100) / 100}</span>
             </div>
             <StripeCheckout
               name="My Shop"
