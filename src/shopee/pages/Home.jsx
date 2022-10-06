@@ -8,7 +8,10 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <img src="" alt="small banner" />
+      <img
+        src="https://cf.shopee.tw/file/fc90c57f4d8f59902e2708e00abd8b17"
+        alt="small banner"
+      />
       <BrandSale />
       <Categories />
       <SpecialSale />
