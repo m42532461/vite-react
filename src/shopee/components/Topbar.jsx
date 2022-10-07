@@ -88,7 +88,7 @@ const Topbar = () => {
         <div className="cart w-[40px] text-white">
           <svg
             viewBox="0 0 26.6 25.6"
-            class="shopee-svg-icon navbar__link-icon icon-shopping-cart-2"
+            className="shopee-svg-icon navbar__link-icon icon-shopping-cart-2"
           >
             <polyline
               fill="none"
