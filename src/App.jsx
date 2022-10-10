@@ -1,13 +1,13 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import Topbar from "./shopee/components/Topbar";
-import Home from "./shopee/pages/Home";
+import Home from "./starbucks/pages/Home";
 // import "./App.css";
 
 function App() {
   return (
+    // TODO: 把shopee的Topbar放到home內
     <div className="App">
-      <Topbar />
       <Home />
     </div>
   );
