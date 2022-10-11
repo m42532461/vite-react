@@ -112,25 +112,32 @@ const Categories = () => {
   console.log(firstRow);
   console.log(secondRow);
   return (
-    <div>
-      <span>分類</span>
+    <div className="bg-white">
+      <div className="my-5 ml-5">
+        <span className="text-gray-400">分類</span>
+      </div>
       <div>
-        <div className="flex">
+        <div className="grid grid-cols-10 grid-flow-row">
           {firstRow.map((item, index) => (
-            <div className="" key={index}>
-              <img src={item.img} alt="" />
-              <span>{item.word}</span>
+            <div
+              className="flex flex-col justify-center items-center border pt-3 pb-5"
+              key={index}
+            >
+              <img src={item.img} alt="" className="w-[83.3px] h-[88.05px]" />
+              <span className="text-sm">{item.word}</span>
             </div>
           ))}
-        </div>
-        <div className="flex">
           {secondRow.map((item, index) => (
-            <div className="" key={index}>
-              <img src={item.img} alt="" />
-              <span>{item.word}</span>
+            <div
+              className="flex flex-col justify-center items-center border pt-3 pb-5"
+              key={index}
+            >
+              <img src={item.img} alt="" className="w-[83.3px] h-[88.05px]" />
+              <span className="text-sm">{item.word}</span>
             </div>
           ))}
         </div>
+        <div className="flex"></div>
       </div>
     </div>
   );

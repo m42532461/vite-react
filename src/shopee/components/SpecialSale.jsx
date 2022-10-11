@@ -63,10 +63,19 @@ const SpecialSale = () => {
           {specialSaleHTML.map((item, index) => (
             <div className="flex flex-col">
               <div
-                className={`w-[300px] h-[300px] bg-[url('../../../../public/assets/shopeeSale1.png')] bg-cover border`}
+              // className={`bg-[url('../../../../public/assets/shopeeSale1.png')] bg-cover border h-[170px] w-[170px] z-10`}
               >
-                <div className="h-[85%] border">
-                  <img src={item.img} alt="" className="h-full" />
+                <div className="h-[85%] border relative">
+                  <img
+                    src="../../../../public/assets/shopeeSale1.png"
+                    alt=""
+                    className=" z-10"
+                  />
+                  <img
+                    src={item.img}
+                    alt=""
+                    className="z-0 absolute top-0 left-0"
+                  />
                 </div>
               </div>
               <span>{item.price}</span>
@@ -74,6 +83,10 @@ const SpecialSale = () => {
               <span>已售出{item.sold}</span>
             </div>
           ))}
+        </div>
+        <div className="relative">
+          <div className="w-20 h-20 bg-black z-30"></div>
+          <div className="w-20 h-20 bg-white absolute -top-5 left-5 z-20"></div>
         </div>
       </div>
     </div>

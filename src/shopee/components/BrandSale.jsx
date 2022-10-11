@@ -8,6 +8,7 @@ const getWordBetween = (wholeString, a, b) => {
   return processEnd;
 };
 let brandSale = [];
+console.log(getWordBetween(brandSaleDiv[0], `url(&quot;`, `&quot;)`));
 for (let div of brandSaleDiv) {
   brandSale.push({
     link: getWordBetween(div, `href="`, `"><div class="n-CE6j">`),
@@ -16,26 +17,42 @@ for (let div of brandSaleDiv) {
     word: getWordBetween(div, `rgb(208, 2, 27);">`, "</div></div></a>"),
   });
 }
+console.log(brandSale);
+console.log(
+  "https://cf.shopee.tw/file/4a0e12b9d96726b1dc500dd7637d4531".split(`"`)[0]
+);
 const BrandSale = () => {
   return (
-    <div>
+    <div className="w-auto">
       <img
         src="https://cf.shopee.tw/file/4a0e12b9d96726b1dc500dd7637d4531"
         alt=""
       />
-      <div className=" bg-[url(https://cf.shopee.tw/file/179a4584ae9a3135fa28379b80ee7d3a)]">
+      <div className=" bg-[url('https://cf.shopee.tw/file/179a4584ae9a3135fa28379b80ee7d3a')] px-5">
         <div className="flex justify-between">
           <span className="text-white">天天搶9折券!</span>
           <button className="text-white">查看更多</button>
         </div>
-        <div className="flex">
+        <div className="flex justify-center items-center py-10">
           {brandSale.map((brand, index) => (
             <div
-              key={index}
-              className={`bg-[url(${brand.bg})] flex flex-col z-10`}
+              className="flex flex-col p-2 justify-center bg-white mr-[1px]"
+              key={index + 1}
             >
-              <img src={brand.img} />
-              <span>{brand.word}</span>
+              <div className="flex ">
+                <div
+                  key={brand.href}
+                  className={` bg-[url('${
+                    brand.bg.split(`"`)[0]
+                  }')] flex flex-col bg-cover w-[162px] h-[162px] justify-center items-center `}
+                ></div>
+              </div>
+              <div className="flex flex-col justify-center items-center -translate-y-8 h-[40px]">
+                <div className="rounded-full border w-4/5 justify-center flex">
+                  <img src={brand.img} className="h-[56px] overflow-hidden" />
+                </div>
+                <span className="text-red-700 mt-3">{brand.word}</span>
+              </div>
             </div>
           ))}
         </div>
