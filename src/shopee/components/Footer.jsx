@@ -567,8 +567,8 @@ const Footer = () => {
   ];
 
   return (
-    <div>
-      <div className="part1 border-b py-20">
+    <div className="flex flex-col">
+      <div className="part1 border-b py-20 main_card">
         <h2 className=" text-2xl font-semibold my-6">
           花得更少買得更好，全新網路購物體驗
         </h2>
@@ -598,7 +598,7 @@ const Footer = () => {
         </span>
       </div>
 
-      <div className="part2 flex flex-col justify-between text-[12px] text-[rgba(0,0,0,.54)]">
+      <div className="part2 flex flex-col justify-between text-[12px] text-[rgba(0,0,0,.54)] main_card">
         <div className="mt-[50px] mb-4 text-[14px] font-bold">分類</div>
         <div className="flex">
           <div className="one flex-1">
@@ -723,9 +723,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="part3">
-        <div class="jP2PzH">
-          <div class="ibAPxC flex justify-between mt-10 border-b">
+      <div className="part3 bg-[#FBFBFB]">
+        <div class="jP2PzH main_card">
+          <div class="ibAPxC flex justify-between mt-10 border-b ">
             <div class="PuXQrZ mb-5">
               <div class="JMCbqu mb-4 font-semibold">客服中心</div>
               <ul class="SOb2n7 flex flex-col">

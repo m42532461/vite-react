@@ -42,7 +42,7 @@ const HotSale = () => {
   ];
   console.log(data);
   return (
-    <div>
+    <div className="main_card">
       <div className="">熱門商品</div>
       <div className="flex">
         {data.map((item) => (

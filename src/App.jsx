@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Topbar from "./shopee/components/Topbar";
-import Home from "./starbucks/pages/Home";
+import Home from "./shopee/pages/Home";
 // import "./App.css";
 
 function App() {

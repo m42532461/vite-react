@@ -112,7 +112,7 @@ const Categories = () => {
   console.log(firstRow);
   console.log(secondRow);
   return (
-    <div className="bg-white">
+    <div className="bg-white main_card">
       <div className="my-5 ml-5">
         <span className="text-gray-400">分類</span>
       </div>
@@ -120,7 +120,7 @@ const Categories = () => {
         <div className="grid grid-cols-10 grid-flow-row">
           {firstRow.map((item, index) => (
             <div
-              className="flex flex-col justify-center items-center border pt-3 pb-5"
+              className=" h-[150px] flex flex-col justify-center items-center border pt-3 pb-5"
               key={index}
             >
               <img src={item.img} alt="" className="w-[83.3px] h-[88.05px]" />
@@ -129,7 +129,7 @@ const Categories = () => {
           ))}
           {secondRow.map((item, index) => (
             <div
-              className="flex flex-col justify-center items-center border pt-3 pb-5"
+              className=" h-[150px] flex flex-col justify-center items-center border pt-3 pb-5"
               key={index}
             >
               <img src={item.img} alt="" className="w-[83.3px] h-[88.05px]" />

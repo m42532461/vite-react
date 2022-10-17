@@ -53,40 +53,48 @@ const SpecialSale = () => {
     },
   ];
   return (
-    <div>
+    <div className="main_card">
       <div className="flex flex-col">
-        <div className="flex justify-between">
+        <div className="flex justify-between px-[15px]">
           <img src="" alt="限時特賣" />
           <Timer2 />
         </div>
         <div className="flex">
           {specialSaleHTML.map((item, index) => (
-            <div className="flex flex-col">
+            <div className="flex flex-col px-[15px] relative items-center">
               <div
               // className={`bg-[url('../../../../public/assets/shopeeSale1.png')] bg-cover border h-[170px] w-[170px] z-10`}
               >
-                <div className="h-[85%] border relative">
-                  <img
-                    src="../../../../public/assets/shopeeSale1.png"
-                    alt=""
-                    className=" z-10"
-                  />
-                  <img
-                    src={item.img}
-                    alt=""
-                    className="z-0 absolute top-0 left-0"
-                  />
+                <div className="border relative w-[170px] h-[170px]">
+                  <div className=" z-0">
+                    <img
+                      src="../../../../public/assets/shopeeSale1.png"
+                      alt=""
+                      className=""
+                    />
+                  </div>
+                  <div className="z-20">
+                    <img
+                      src={item.img}
+                      alt=""
+                      className="z-20 absolute top-0 left-0"
+                    />
+                  </div>
                 </div>
               </div>
-              <span>{item.price}</span>
-              <span>{item.discount}</span>
-              <span>已售出{item.sold}</span>
+              <span className="text-[#EE4D2D] font-medium">${item.price}</span>
+              <div className="text-[#EE4D2D] absolute top-0 right-4 z-50 text-sm ">
+                {item.discount}折
+              </div>
+              <div className="w-[136px] text-[12px] h-5 text-white bg-orange-200 rounded-full relative">
+                <div className="w-1/2 rounded-l-full h-full bg-orange-500">
+                  <span className="w-[136px] text-center absolute">
+                    已售出{item.sold}
+                  </span>
+                </div>
+              </div>
             </div>
           ))}
-        </div>
-        <div className="relative">
-          <div className="w-20 h-20 bg-black z-30"></div>
-          <div className="w-20 h-20 bg-white absolute -top-5 left-5 z-20"></div>
         </div>
       </div>
     </div>

@@ -1,8 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   font-family: "Noto Sans TC", "微軟正黑體", "Microsoft JhengHei",
     "Apple LiGothic Medium", sans-serif;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+}
+
+@layer utilities {
+  .filter-none {
+    filter: none;
+  }
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+}
+
+.main_card {
+  @apply w-[1200px] flex flex-col;
+}

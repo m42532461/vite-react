@@ -98,14 +98,31 @@ const ShopeeMall = () => {
     },
   ];
   return (
-    <div>
-      <div className="left">{/* Slider */}</div>
-      <div className="right grid grid-rows-2 grid-cols-8">
-        {shopeeMall.map((item) => (
-          <div className=" grid" key={item.id + 1}>
-            <img src={item.img} alt="" />
-          </div>
-        ))}
+    <div className="main_card">
+      <div className="flex justify-between px-5 h-[61px] items-center text-[#D0011B]">
+        <div className="flex">
+          <div className="border-r pr-[15px] text-[17px]">蝦皮商城</div>
+          <div className="px-[15px] text-[#333333] text-[16px]">15天鑑賞期</div>
+          <div className="pr-[15px] text-[#333333] text-[16px]">蝦皮安心退</div>
+          <div className="pr-[15px] text-[#333333] text-[16px]">正品保障</div>
+        </div>
+        <div className="">{"查看更多 >"}</div>
+      </div>
+      <div className="flex">
+        <div className="left w-[400px] flex-1">
+          <img
+            src="https://cf.shopee.tw/file/604e131b0b7c6f4afad7016eb100c3b8"
+            alt=""
+            className="w-[390px]"
+          />
+        </div>
+        <div className="right flex flex-wrap overflow-hidden flex-2">
+          {shopeeMall.map((item) => (
+            <div className=" grid w-[200px]" key={item.id + 1}>
+              <img src={item.img} alt="" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
