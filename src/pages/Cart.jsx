@@ -27,12 +27,12 @@ const Cart = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = userRequest.post("/checkout/payment", {
+        const stripeRes = await userRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
           amount: cart.total * 100,
         });
         // clear cart
-        navigate("/success", { data: res.data });
+        navigate("/success", { state: stripeRes.data });
       } catch (error) {
         console.log(error);
       }
