@@ -24,6 +24,7 @@ const ProductList = () => {
   const sort = query.get("sort") || "newset";
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getProducts(dispatch, cat, page, sort);
   }, [page, sort, cat]);
 
