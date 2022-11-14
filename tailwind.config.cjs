@@ -2,7 +2,24 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        scalebottom: {
+          "0%": {
+            transform: "scaleY(0.4)",
+            "transform-origin": "bottom",
+          },
+          "100%": {
+            transform: "scaleY(1)",
+            "transform-origin": "bottom",
+          },
+        },
+      },
+    },
   },
   plugins: [],
 };

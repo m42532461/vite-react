@@ -13,6 +13,7 @@ const useElementOnScreen = (options) => {
     const observer = new IntersectionObserver(callbackFunction, options);
     if (containerRef.current) observer.observe(containerRef.current);
     return () => {
+      // 目前無效 仍會observe
       if (containerRef.current) observer.unobserve(containerRef.current);
     };
   }, [containerRef, options]);
