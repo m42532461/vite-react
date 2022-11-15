@@ -19,6 +19,12 @@ module.exports = {
           },
         },
       },
+      colors: {
+        "Dark-Grey": "#263138",
+        Grey: "#445964",
+        "Soft-Grey": "#DFDFDF",
+        BG: "#FBFBFB",
+      },
     },
   },
   plugins: [],
