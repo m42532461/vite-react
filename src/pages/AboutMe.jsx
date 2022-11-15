@@ -3,7 +3,10 @@ import Score from "../assets/score.svg";
 import { FiHexagon } from "react-icons/fi";
 const AboutMe = () => {
   return (
-    <div className="flex flex-col w-[1400px] bg-BG items-center gap-[108px] pb-[136px] pt-[55px]">
+    <div
+      className="flex flex-col w-[1400px] bg-BG items-center gap-[108px] pb-[136px] pt-[55px]"
+      id="about"
+    >
       <div className=" flex flex-col items-center w-[1032px] gap-10">
         <div className="">
           <img src="" alt="" />

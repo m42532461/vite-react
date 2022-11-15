@@ -2,7 +2,7 @@ import React from "react";
 
 const Portfolio = () => {
   return (
-    <div className="flex flex-col w-[1400px]">
+    <div className="flex flex-col w-[1400px] pb-[145px]" id="portfolio">
       <div className="flex gap-[91px] items-end pt-[91px]">
         <h1 className="text-[64px] font-black">
           <span className="text-[#263138]">My</span>

@@ -8,7 +8,10 @@ import {
 import { SiMongodb, SiPython, SiTailwindcss, SiReact } from "react-icons/si";
 const Techs = () => {
   return (
-    <div className="flex flex-col w-[1400px] gap-[117px] pt-[113px] pb-[170px] items-center bg-BG">
+    <div
+      className="flex flex-col w-[1400px] gap-[117px] pt-[113px] pb-[170px] items-center bg-BG"
+      id="resume"
+    >
       <h1 className="text-[64px] font-black">
         <span className="text-[#263138]">My </span>
 

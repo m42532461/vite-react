@@ -11,7 +11,7 @@ const Navbar = () => {
       <ul className="flex gap-20 text-xl text-[#445964] font-medium">
         {["home", "about", "portfolio", "service", "resume", "contact"].map(
           (item) => (
-            <li>{item}</li>
+            <a href={`#${item}`}>{item}</a>
           )
         )}
       </ul>
