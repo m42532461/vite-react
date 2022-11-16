@@ -17,10 +17,10 @@ const AboutMe = () => {
           <span className="text-[#263138]">Haung</span>
         </h1>
         <span className="text-[24px] font-medium text-[#445964]">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa eos
-          facere, labore enim nostrum perferendis quisquam doloremque sit
-          incidunt laborum quis placeat neque. Dolorem fugit magni pariatur quis
-          id perferendis!
+          My name is Paul Haung, I'm a software and website developer. The main
+          development technology currently used is MERN (MongoDB + Express +
+          React + Nodejs). If you have any kind of need about skills I have,
+          feel free to contact me. Let's get it!!!
         </span>
       </div>
       <div className="flex flex-col items-center w-[1032px]">
@@ -31,13 +31,13 @@ const AboutMe = () => {
         <div className="text-[36px] text-[#445964] Roboto grid grid-cols-4 gap-x-[50px] gap-y-[71px] pt-[62px]">
           {[
             { name: "HTML", score: 4 },
-            { name: "React", score: 4 },
             { name: "CSS", score: 3 },
-            { name: "MongoDB", score: 4 },
             { name: "JavaScript", score: 4 },
-            { name: "MySQL", score: 4 },
-            { name: "C", score: 4 },
-            { name: "Python", score: 4 },
+            { name: "React", score: 4 },
+            { name: "MongoDB", score: 4 },
+            { name: "Tailwind", score: 4 },
+            { name: "Nodejs", score: 4 },
+            { name: "Python", score: 3 },
           ].map((skill) => (
             <div className="col-span-1">
               <div className="w-full flex flex-col items-center">

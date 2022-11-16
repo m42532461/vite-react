@@ -23,9 +23,36 @@ const Techs = () => {
             Technologies
           </span>
           <h2 className="text-[36px] font-black">
-            <span className="text-[#263138]">Already </span>
+            <span className="text-[#263138]">Most </span>
 
-            <span className="text-black">used</span>
+            <span className="text-black">Handy</span>
+          </h2>
+        </div>
+
+        <div className="flex gap-[100px]">
+          <div className="w-[106px] h-[106px]">
+            <SiReact className="w-full h-full" />
+          </div>
+          <div className="w-[106px] h-[106px]">
+            <IoLogoNodejs className="w-full h-full" />
+          </div>
+          <div className="w-[106px] h-[106px]">
+            <SiTailwindcss className="w-full h-full" />
+          </div>
+          <div className="w-[106px] h-[106px]">
+            <SiMongodb className="w-full h-full" />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-10 items-center">
+        <div className="flex flex-col items-center">
+          <span className="text-[#445964] font-medium text-[24px] ">
+            Technologies
+          </span>
+          <h2 className="text-[36px] font-black">
+            <span className="text-[#445964]">Also </span>
+
+            <span className="text-black">used </span>
           </h2>
         </div>
 
@@ -39,31 +66,8 @@ const Techs = () => {
           <div className="w-[106px] h-[106px]">
             <IoLogoCss3 className="w-full h-full" />
           </div>
-        </div>
-      </div>
-      <div className="flex flex-col gap-10 items-center">
-        <div className="flex flex-col items-center">
-          <span className="text-[#445964] font-medium text-[24px] ">
-            Technologies
-          </span>
-          <h2 className="text-[36px] font-black">
-            <span className="text-[#445964]">Currently </span>
-
-            <span className="text-black">Developing</span>
-          </h2>
-        </div>
-        <div className="flex gap-[100px]">
           <div className="w-[106px] h-[106px]">
-            <SiReact className="w-full h-full" />
-          </div>
-          <div className="w-[106px] h-[106px]">
-            <IoLogoNodejs className="w-full h-full" />
-          </div>
-          <div className="w-[106px] h-[106px]">
-            <SiTailwindcss className="w-full h-full" />
-          </div>
-          <div className="w-[106px] h-[106px]">
-            <SiMongodb className="w-full h-full" />
+            <SiPython className="w-full h-full" />
           </div>
         </div>
       </div>
