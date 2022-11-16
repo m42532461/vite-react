@@ -6,7 +6,7 @@ import {
   Possibility,
   WhatGPT3,
 } from "./containers";
-import "./app.css";
+import "./App.css";
 
 import { CTA, Brand, Navbar } from "./components";
 
