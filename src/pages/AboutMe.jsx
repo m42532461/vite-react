@@ -1,11 +1,19 @@
 import React from "react";
 import Score from "../assets/score.svg";
 import { FiHexagon } from "react-icons/fi";
+import useElementOnScreen from "../functions/useElementOnScreen";
+import { options, scrollClass } from "../functions/options";
+import "animate.css";
+
 const AboutMe = () => {
+  const [containerRef, isVisible] = useElementOnScreen(options);
   return (
     <div
-      className="flex flex-col w-[1400px] bg-BG items-center gap-[108px] pb-[136px] pt-[55px]"
+      className={`flex flex-col w-[1400px] bg-BG items-center gap-[108px] pb-[136px] pt-[55px] ${
+        isVisible ? "" : "opacity-0"
+      } `}
       id="about"
+      ref={containerRef}
     >
       <div className=" flex flex-col items-center w-[1032px] gap-10">
         <div className="">
@@ -23,7 +31,7 @@ const AboutMe = () => {
           feel free to contact me. Let's get it!!!
         </span>
       </div>
-      <div className="flex flex-col items-center w-[1032px]">
+      <div className="flex flex-col items-center w-[1032px] animate__animated animate__fadeInRight">
         <h1 className="text-[64px] font-black">
           <span className="text-[#263138]">Hard </span>
           <span className="text-[#445964]">Skills</span>

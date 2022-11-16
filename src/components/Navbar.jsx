@@ -9,9 +9,9 @@ const Navbar = () => {
         <h1 className="text-[36px] font-black text-[#445964]">Paul Haung</h1>
       </div>
       <ul className="flex gap-20 text-xl text-[#445964] font-medium">
-        {["home", "about", "portfolio", "service", "resume", "contact"].map(
+        {["Home", "About", "Portfolio", "Service", "Resume", "Contact"].map(
           (item) => (
-            <a href={`#${item}`}>{item}</a>
+            <a href={`#${item.toLowerCase()}`}>{item}</a>
           )
         )}
       </ul>

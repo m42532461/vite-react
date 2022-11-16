@@ -3,6 +3,9 @@ import Navbar from "../components/Navbar";
 import art1 from "../assets/Home_art 1.svg";
 import { SiInstagram, SiGithub } from "react-icons/si";
 import Line from "../assets/line.png";
+import useElementOnScreen from "../functions/useElementOnScreen";
+
+import { options, scrollClass } from "../functions/options";
 const Home = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -11,6 +14,8 @@ const Home = () => {
   const [index, setIndex] = useState(1);
   const toRotate = ["Web Developer", "Freelancer", "Software Developer"];
   const period = 2000;
+
+  const [containerRef, isVisible] = useElementOnScreen(options);
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -50,8 +55,11 @@ const Home = () => {
   };
   return (
     <div
-      className="flex flex-col items-center mb-[55px] bg-BG pb-[99.45px] "
+      className={`flex flex-col items-center mb-[55px] bg-BG pb-[99.45px] ${
+        isVisible ? "" : "opacity-0"
+      } ${scrollClass}`}
       id="home"
+      ref={containerRef}
     >
       <Navbar />
       <div className="flex w-[1400px] mt-[172px] items-end">

@@ -18,6 +18,17 @@ module.exports = {
             "transform-origin": "bottom",
           },
         },
+        "slide-left": {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-100px)",
+          },
+        },
+      },
+      animation: {
+        "slide-left": "slide-left 2s ease-in-out 1",
       },
       colors: {
         "Dark-Grey": "#263138",

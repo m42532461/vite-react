@@ -6,11 +6,19 @@ import {
   IoLogoCss3,
 } from "react-icons/io";
 import { SiMongodb, SiPython, SiTailwindcss, SiReact } from "react-icons/si";
+import useElementOnScreen from "../functions/useElementOnScreen";
+
+import { options, scrollClass } from "../functions/options";
+
 const Techs = () => {
+  const [containerRef, isVisible] = useElementOnScreen(options);
   return (
     <div
-      className="flex flex-col w-[1400px] gap-[117px] pt-[113px] pb-[170px] items-center bg-BG"
+      className={`flex flex-col w-[1400px] gap-[117px] pt-[113px] pb-[170px] items-center bg-BG ${
+        isVisible ? "" : "opacity-0"
+      } ${scrollClass}`}
       id="resume"
+      ref={containerRef}
     >
       <h1 className="text-[64px] font-black">
         <span className="text-[#263138]">My </span>

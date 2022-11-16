@@ -1,65 +1,71 @@
 import React from "react";
 import Quote from "../assets/Quote.png";
+import useElementOnScreen from "../functions/useElementOnScreen";
+
+import { options, scrollClass } from "../functions/options";
 const Services = () => {
+  const [containerRef, isVisible] = useElementOnScreen(options);
   return (
     <div
-      className="flex flex-col items-center w-[1712px] pt-[90px] pb-[121px]"
+      className={`flex flex-col items-center xl:w-[1400px] pt-[90px] pb-[121px] ${
+        isVisible ? "" : "opacity-0"
+      } ${scrollClass}`}
       id="service"
+      ref={containerRef}
     >
-      <div className="flex justify-end">
-        <span className="text-[24px] font-medium w-[40%] text-[#445944]">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro
-          deleniti deserunt distinctio quos aliquid quaerat dolorum ducimus
-          autem. Et asperiores sed animi modi iusto illo voluptatibus eius,
-          dicta consequatur? Architecto?
-        </span>
+      <div className="flex justify-end w-full">
         <h1 className="text-[64px] font-black pl-24 pr-[130px]">Services</h1>
       </div>
       <div className="flex w-full gap-[61px] text-white pt-[157px] pb-[142px]">
         <div className="flex-1 ">
-          <div className="w-full mt-[30px] bg-Dark-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px]">
-            <h2 className="text-[36px] font-black text-[#445964]">Cargo</h2>
+          <div className="w-full mt-[30px] bg-Dark-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px] min-h-[500px]">
+            <h2 className="text-[36px] font-black text-[#445964]">Layout</h2>
             <span className="text-[24px] font-medium">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis
-              vitae nesciunt neque ipsam unde accusantium perspiciatis minima
-              inventore atque temporibus. Tenetur optio consequatur facilis
-              consectetur doloribus voluptatibus qui, dolor voluptatem!
+              Any kind of website layout. Accurately and correctly cut out the
+              typesetting required by customers As long as you have an idea, let
+              me help you complete it.
             </span>
           </div>
         </div>
         <div className="flex-1">
           <div className="w-full bg-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px]">
-            <h2 className="text-[36px] font-black text-[#263138]">Cargo</h2>
+            <h2 className="text-[36px] font-black text-[#263138]">Ecommerce</h2>
             <span className="text-[24px] font-medium">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis
-              vitae nesciunt neque ipsam unde accusantium perspiciatis minima
-              inventore atque temporibus. Tenetur optio consequatur facilis
-              consectetur doloribus voluptatibus qui, dolor voluptatem!
+              {/* 任何形式風格的電商網站, 想要賣東西卻又不想被平台抽取高額手續費嗎? 想要快速建立自己的網站卻又不想要一頁式網站搞得像是詐騙嗎? 輕鬆擁有自己的平台，並且有客製化後台，輕鬆掌握銷售數據，抓住顧客的心 */}
+              Any style of e-commerce website. Want to sell things but don’t
+              want to be charged high commissions by the platform? Want to build
+              your own website quickly but don’t want to look like a scam with a
+              one-page website ? Have your own platform and a customized
+              dashboard, Grasp all sales data and capture the hearts of
+              customers.
             </span>
           </div>
         </div>
         <div className="flex-1 ">
-          <div className="w-full mt-[30px] bg-Dark-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px]">
-            <h2 className="text-[36px] font-black text-[#445964]">Cargo</h2>
+          <div className="w-full mt-[30px] bg-Dark-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px] min-h-[500px]">
+            <h2 className="text-[36px] font-black text-[#445964]">
+              Landing Page
+            </h2>
             <span className="text-[24px] font-medium">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis
-              vitae nesciunt neque ipsam unde accusantium perspiciatis minima
-              inventore atque temporibus. Tenetur optio consequatur facilis
-              consectetur doloribus voluptatibus qui, dolor voluptatem!
+              {/* 公司、品牌、機構等形象官網或入口網站。擁有一個好的形象官網或入口網站，不僅能讓受眾簡明扼要地知道您的服務內容，也能讓瀏覽者留下好印象，提升成為潛在受眾的可能性 */}
+              Having a good website can not only let the audience understand
+              your service content concisely, but also make a good impression on
+              the viewers and increase the possibility of becoming a potential
+              audience.
             </span>
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center w-1/3 gap-7">
+      <div className="flex flex-col items-center gap-7">
         <div className="w-full flex justify-center">
           <img src={Quote} alt="" />
         </div>
-        <span className="text-[36px] font-black">
-          “Aprender é a unica coisa que a mente não se cansa, nunca tem medo e
-          nunca se arrepende”
-        </span>
+        <span className="text-[36px] font-black"></span>
         <h2 className="text-[36px] font-black text-[#263138]">
-          ~Leonardo da Vinci
+          Not only these.
+        </h2>
+        <h2 className="text-[36px] font-black text-[#263138]">
+          Look forward to hearing from you!
         </h2>
       </div>
     </div>

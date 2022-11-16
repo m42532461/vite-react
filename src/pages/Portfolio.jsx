@@ -1,8 +1,18 @@
 import React from "react";
+import useElementOnScreen from "../functions/useElementOnScreen";
+
+import { options, scrollClass } from "../functions/options";
 
 const Portfolio = () => {
+  const [containerRef, isVisible] = useElementOnScreen(options);
   return (
-    <div className="flex flex-col w-[1400px] pb-[145px]" id="portfolio">
+    <div
+      className={`flex flex-col w-[1400px] pb-[145px] ${
+        isVisible ? "" : "opacity-0"
+      } ${scrollClass}`}
+      id="portfolio"
+      ref={containerRef}
+    >
       <div className="flex gap-[91px] items-end pt-[91px]">
         <h1 className="text-[64px] font-black">
           <span className="text-[#263138]">My</span>
