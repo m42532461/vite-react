@@ -54,20 +54,23 @@ const AboutMe = () => {
             { name: "Python", score: 3 },
           ].map((skill) => (
             <div className="col-span-1">
-              <div className="w-full flex flex-col items-center hover:-translate-y-1 duration-200 cursor-pointer ">
+              <div
+                className="w-full flex flex-col items-center hover:-translate-y-1 duration-200 cursor-pointer "
+                key={skill.name}
+              >
                 <h2 className="text-[36px] font-black">{skill.name}</h2>
                 <div className="flex gap-2">
                   {Array(skill.score)
                     .fill(1)
-                    .map((count) => (
-                      <div className="w-8 h-8 ">
+                    .map((count, index) => (
+                      <div className="w-8 h-8 " key={index}>
                         <img src={Score} alt="" />
                       </div>
                     ))}
                   {Array(5 - skill.score)
                     .fill(1)
-                    .map((count) => (
-                      <div className="w-8 h-8 ">
+                    .map((count, index) => (
+                      <div className="w-8 h-8 " key={5 - index}>
                         <img className=" opacity-20" src={Score} alt="" />
                       </div>
                     ))}

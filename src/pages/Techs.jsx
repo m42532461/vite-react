@@ -16,7 +16,7 @@ const Techs = () => {
   return (
     <div
       className={`flex flex-col w-[1400px] gap-[117px] pt-[113px] pb-[170px] items-center bg-BG`}
-      id="resume"
+      id="techs"
       ref={containerRef}
     >
       <h1

@@ -35,7 +35,7 @@ const Contact = () => {
             { key: "Github", value: "https://github.com/m42532461" },
             { key: "Instagram", value: "couldchic0712" },
           ].map((info) => (
-            <div className="flex gap-3">
+            <div className="flex gap-3" key={info.key}>
               <div className="text-[#445964]">{info.key}: </div>
               <div className="text-[#263138]">{info.value}</div>
             </div>

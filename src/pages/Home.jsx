@@ -5,7 +5,7 @@ import useElementOnScreen from "../functions/useElementOnScreen";
 
 import { options, scrollClass } from "../functions/options";
 import ContactIcon from "../components/ContactIcon";
-const Home = () => {
+const Home = ({ language, changeLanguage }) => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
@@ -60,7 +60,7 @@ const Home = () => {
       id="home"
       ref={containerRef}
     >
-      <Navbar />
+      <Navbar changeLanguage={changeLanguage} />
       <div
         className={`flex w-[1400px] mt-[172px] items-end ${
           isVisible ? "animate-slide-left" : ""

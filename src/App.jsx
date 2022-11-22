@@ -7,17 +7,18 @@ import Techs from "./pages/Techs";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import ToTop from "./components/ToTop";
-import { CgArrowUp } from "react-icons/cg";
+import { useState } from "react";
 const App = () => {
+  const [language, setLanguage] = useState("Chinese");
   return (
     <div className="flex flex-col items-center bg-BG overflow-clip relative">
-      <Home />
-      <AboutMe />
-      <Portfolio />
-      <Techs />
-      <Services />
-      <Contact />
-      <ToTop />
+      <Home language={language} changeLanguage={setLanguage} />
+      <AboutMe language={language} />
+      <Portfolio language={language} />
+      <Techs language={language} />
+      <Services language={language} />
+      <Contact language={language} />
+      <ToTop language={language} />
     </div>
   );
 };
