@@ -54,7 +54,7 @@ const Home = ({ language, changeLanguage }) => {
   };
   return (
     <div
-      className={`flex flex-col items-center mb-[55px] bg-BG pb-[99.45px] ${
+      className={`flex flex-col items-center mb-[55px] bg-BG pb-[99.45px]  ${
         isVisible ? "" : "opacity-0"
       } ${scrollClass}`}
       id="home"
@@ -62,18 +62,20 @@ const Home = ({ language, changeLanguage }) => {
     >
       <Navbar changeLanguage={changeLanguage} />
       <div
-        className={`flex w-[400px] 2xl:w-[1400px] mt-[172px] items-end ${
+        className={`flex w-[380px] px-5 2xl:px-0 2xl:w-[1400px] mt-[100px] 2xl:mt-[172px] items-end ${
           isVisible ? "animate-slide-left" : ""
         }`}
       >
-        <div className="flex-1 left flex flex-col gap-[150px] h-full ">
+        <div className="flex-1 left flex flex-col gap-[100px] 2xl:gap-[150px] h-full ">
           <div className="text-[#445964]">
-            <span className="text-[24px] font-medium">Hi there,</span>
-            <h1 className="text-[72px] font-black">
+            <span className="text-[24px] font-black 2xl:font-medium">
+              Hi there,
+            </span>
+            <h1 className="text-[44px] 2xl:text-[72px] font-black">
               I'm a <span className="border-r-4 border-[#666]">{text}</span>
             </h1>
-            <span className="text-[24px] font-medium">
-              Welcome to my profolio website
+            <span className="text-[24px] font-black 2xl:font-medium">
+              Welcome to my website
             </span>
           </div>
           <div className="">

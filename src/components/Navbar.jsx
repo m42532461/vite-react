@@ -5,10 +5,12 @@ import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
-    <div className="flex justify-between w-[400px] 2xl:w-[1400px] items-center pt-5 ">
-      <div className="flex items-center gap-5">
-        <CgCodeClimate className="w-24 h-24 " />
-        <h1 className="text-[36px] font-black text-[#445964]">Paul Haung</h1>
+    <div className="flex justify-between w-[370px] 2xl:w-[1400px] items-center pt-5 ">
+      <div className="flex items-center gap-1 2xl:gap-5">
+        <CgCodeClimate className="w-16 h-16 2xl:w-24 2xl:h-24 " />
+        <h1 className="text-[26px] 2xl:text-[36px] font-black text-[#445964]">
+          Paul Haung
+        </h1>
       </div>
       <div className="text-[20px] text-[#445964] font-semibold h-full hidden lg:flex">
         {["Home", "About", "Portfolio", "Service", "Techs", "Contact"].map(
@@ -42,29 +44,29 @@ const Navbar = () => {
           />
         )}
         {toggleMenu && (
-          <div className="flex flex-col absolute top-10 right-0 animate-[scale-up-center_0.4s_cubic-bezier(.39,.57,.56,1)_both] min-w-[200px] text-end bg-footer p-8">
-            <div className="flex flex-col">
-              <a href="" className="font-Manrope my-2">
-                Home
-              </a>
-              <a href="" className="font-Manrope my-2">
-                What is GPT
-              </a>
-              <a href="" className="font-Manrope my-2">
-                Open AI
-              </a>
-              <a href="" className="font-Manrope my-2">
-                Case Studies
-              </a>
-              <a href="" className="font-Manrope my-2">
-                Library
-              </a>
-            </div>
-            <div className="block md:hidden">
-              <button className="font-Manrope my-2">Sign in</button>
-              <button className="py-3 px-6 leading-[25px] bg-[#FF4820] rounded-[5px] my-2">
-                Sign up
-              </button>
+          <div className="flex flex-col absolute top-10 right-0 animate-[scale-up-center_0.4s_cubic-bezier(.39,.57,.56,1)_both] min-w-[200px] text-end bg-Grey text-white opacity-90 p-8 z-10">
+            <div className="flex flex-col items-center  ">
+              {[
+                "Home",
+                "About",
+                "Portfolio",
+                "Service",
+                "Techs",
+                "Contact",
+              ].map((item) => (
+                <div
+                  className=" h-full  hover:-translate-y-1 duration-200 cursor-pointer hover:border-b-2 px-5 py-3"
+                  key={item}
+                >
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className=""
+                    onClick={() => setToggleMenu(false)}
+                  >
+                    {item}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         )}

@@ -15,7 +15,7 @@ const Techs = () => {
   const [containerRef, isVisible] = useElementOnScreen(options);
   return (
     <div
-      className={`flex flex-col w-full 2xl:w-[1400px] gap-[50px] 2xl:gap-[117px] pt-[113px] pb-[170px] items-center bg-BG`}
+      className={`flex flex-col w-full 2xl:w-[1400px] gap-[50px] 2xl:gap-[117px] px-0 2xl:pt-[113px] pb-0 2xl:pb-[170px] items-center bg-BG`}
       id="techs"
       ref={containerRef}
     >

@@ -12,11 +12,11 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className=" flex flex-col gap-[100px] w-[1400px] items-center pb-20"
+      className=" flex flex-col gap-[100px] w-full xl:w-[1400px] items-center pb-20"
       ref={containerRef}
     >
       <h1
-        className={` text-[#263138] text-[36px] 2xl:text-[64px] font-black w-full text-left ${
+        className={` text-[#263138] text-[36px] 2xl:text-[64px] font-black w-full px-10 md:px-20 2xl:px-0 text-left ${
           isVisible ? "animate-slide-right" : "opacity-0"
         }`}
       >
@@ -24,7 +24,7 @@ const Contact = () => {
         <span className="text-[#445964]">Info</span>
       </h1>
       <div
-        className={` flex flex-col text-[30px] font-bold gap-20 ${
+        className={` flex flex-col text-[16px] sm:text-[24px] lg:text-[30px] 2xl:text-[36px] font-bold gap-20 ${
           isVisible ? "animate-slide-right" : "opacity-0"
         }`}
       >

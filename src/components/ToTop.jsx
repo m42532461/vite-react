@@ -30,7 +30,7 @@ const ToTop = () => {
       }`}
     >
       <button
-        className="px-10 text-[40px] flex items-center"
+        className="px-10 text-[20px] xl:text-[40px] font-medium flex items-center"
         onClick={() => scrollToTop()}
       >
         <CgArrowUp />
