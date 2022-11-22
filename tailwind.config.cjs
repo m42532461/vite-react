@@ -4,6 +4,9 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
+        shine: {
+          "100%": { left: "125%" },
+        },
         wiggle: {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
@@ -20,15 +23,35 @@ module.exports = {
         },
         "slide-left": {
           "0%": {
-            transform: "translateX(0)",
+            opacity: 0,
+            transform: "translateX(-100%)",
+            filter: "blur(5px)",
+            transition: "all 1s",
           },
           "100%": {
-            transform: "translateX(-100px)",
+            opacity: 1,
+            transform: "translateX(0)",
+            filter: "blur(0px)",
+          },
+        },
+        "slide-right": {
+          "0%": {
+            opacity: 0,
+            transform: "translateX(100%)",
+            filter: "blur(5px)",
+            transition: "all 1s",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateX(0)",
+            filter: "blur(0px)",
           },
         },
       },
       animation: {
-        "slide-left": "slide-left 2s ease-in-out 1",
+        "slide-left": "slide-left 1s ease-in-out 1",
+        "slide-right": "slide-right 1s ease-in-out 1",
+        shine: "shine 1s ease-in-out 1",
       },
       colors: {
         "Dark-Grey": "#263138",

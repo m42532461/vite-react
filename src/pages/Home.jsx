@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import art1 from "../assets/Home_art 1.svg";
-import { SiInstagram, SiGithub } from "react-icons/si";
-import Line from "../assets/line.png";
 import useElementOnScreen from "../functions/useElementOnScreen";
 
 import { options, scrollClass } from "../functions/options";
+import ContactIcon from "../components/ContactIcon";
 const Home = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -62,7 +61,11 @@ const Home = () => {
       ref={containerRef}
     >
       <Navbar />
-      <div className="flex w-[1400px] mt-[172px] items-end">
+      <div
+        className={`flex w-[1400px] mt-[172px] items-end ${
+          isVisible ? "animate-slide-left" : ""
+        }`}
+      >
         <div className="flex-1 left flex flex-col gap-[150px] h-full ">
           <div className="text-[#445964]">
             <span className="text-[24px] font-medium">Hi there,</span>
@@ -74,15 +77,11 @@ const Home = () => {
             </span>
           </div>
           <div className="">
-            <button className="px-[31px] py-[24px] font-black bg-[#263138] text-white rounded-[20px]">
+            <button className="px-[31px] py-[24px] font-black bg-[#263138] text-white rounded-[20px] hover:-translate-y-1 duration-200 cursor-pointer hover:shadow-xl">
               Learn more about me
             </button>
           </div>
-          <div className="flex gap-[26px]">
-            <SiGithub className="w-10 h-10" />
-            <img className="w-10 h-10" src={Line} alt="Line" />
-            <SiInstagram className="w-10 h-10" />
-          </div>
+          <ContactIcon />
         </div>
         <div className="flex-1 right">
           <img src={art1} alt="" />

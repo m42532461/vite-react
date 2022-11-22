@@ -13,12 +13,20 @@ const Services = () => {
       id="service"
       ref={containerRef}
     >
-      <div className="flex justify-end w-full">
+      <div
+        className={`flex justify-end w-full ${
+          isVisible ? "animate-slide-left " : "opacity-0"
+        }`}
+      >
         <h1 className="text-[64px] font-black pl-24 pr-[130px]">Services</h1>
       </div>
-      <div className="flex w-full gap-[61px] text-white pt-[157px] pb-[142px]">
+      <div
+        className={`flex w-full gap-[61px] text-white pt-[157px] pb-[142px] ${
+          isVisible ? "animate-slide-left " : "opacity-0"
+        }`}
+      >
         <div className="flex-1 ">
-          <div className="w-full mt-[30px] bg-Dark-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px] min-h-[500px]">
+          <div className="w-full mt-[30px] bg-Dark-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px] min-h-[420px] hover:-translate-y-1 duration-200 cursor-pointer hover:translate-x-1 hover:scale-110">
             <h2 className="text-[36px] font-black text-[#445964]">Layout</h2>
             <span className="text-[24px] font-medium">
               Any kind of website layout. Accurately and correctly cut out the
@@ -28,21 +36,18 @@ const Services = () => {
           </div>
         </div>
         <div className="flex-1">
-          <div className="w-full bg-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px]">
+          <div className="w-full bg-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px] min-h-[420px] hover:-translate-y-1 duration-200 cursor-pointer hover:translate-x-1 hover:scale-110">
             <h2 className="text-[36px] font-black text-[#263138]">Ecommerce</h2>
             <span className="text-[24px] font-medium">
               {/* 任何形式風格的電商網站, 想要賣東西卻又不想被平台抽取高額手續費嗎? 想要快速建立自己的網站卻又不想要一頁式網站搞得像是詐騙嗎? 輕鬆擁有自己的平台，並且有客製化後台，輕鬆掌握銷售數據，抓住顧客的心 */}
-              Any style of e-commerce website. Want to sell things but don’t
-              want to be charged high commissions by the platform? Want to build
-              your own website quickly but don’t want to look like a scam with a
-              one-page website ? Have your own platform and a customized
-              dashboard, Grasp all sales data and capture the hearts of
-              customers.
+              Any style of e-commerce website. Have your own platform and a
+              customized dashboard, Grasp all sales data and capture the hearts
+              of customers.
             </span>
           </div>
         </div>
         <div className="flex-1 ">
-          <div className="w-full mt-[30px] bg-Dark-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px] min-h-[500px]">
+          <div className="w-full mt-[30px] bg-Dark-Grey pb-[41px] pt-10 px-10 rounded-[20px] flex flex-col items-center gap-[30px] min-h-[420px] hover:-translate-y-1 duration-200 cursor-pointer hover:translate-x-1 hover:scale-110">
             <h2 className="text-[36px] font-black text-[#445964]">
               Landing Page
             </h2>
@@ -56,7 +61,11 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-7">
+      <div
+        className={`flex flex-col items-center gap-7 ${
+          isVisible ? "animate-slide-left " : "opacity-0"
+        }`}
+      >
         <div className="w-full flex justify-center">
           <img src={Quote} alt="" />
         </div>

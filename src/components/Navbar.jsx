@@ -8,13 +8,18 @@ const Navbar = () => {
         <CgCodeClimate className="w-24 h-24 " />
         <h1 className="text-[36px] font-black text-[#445964]">Paul Haung</h1>
       </div>
-      <ul className="flex gap-20 text-xl text-[#445964] font-medium">
+      <div className="flex text-[20px] text-[#445964] font-medium h-full">
         {["Home", "About", "Portfolio", "Service", "Resume", "Contact"].map(
           (item) => (
-            <a href={`#${item.toLowerCase()}`}>{item}</a>
+            <div className=" h-full  hover:-translate-y-1 duration-200 cursor-pointer hover:border-b-2 px-10 py-5 rounded-[10px] relative">
+              <a href={`#${item.toLowerCase()}`} className="">
+                {item}
+              </a>
+              <span className="w-0 h-0 rounded bg-purple-600 absolute top-0 left-0 ease-out duration-500 transition-all group-hover:w-full group-hover:h-full -z-1"></span>
+            </div>
           )
         )}
-      </ul>
+      </div>
     </div>
   );
 };

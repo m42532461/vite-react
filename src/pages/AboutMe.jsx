@@ -9,13 +9,15 @@ const AboutMe = () => {
   const [containerRef, isVisible] = useElementOnScreen(options);
   return (
     <div
-      className={`flex flex-col w-[1400px] bg-BG items-center gap-[108px] pb-[136px] pt-[55px] ${
-        isVisible ? "" : "opacity-0"
-      } `}
+      className={`flex flex-col w-[1400px] bg-BG items-center gap-[108px] pb-[136px] pt-[55px]`}
       id="about"
       ref={containerRef}
     >
-      <div className=" flex flex-col items-center w-[1032px] gap-10">
+      <div
+        className={` flex flex-col items-center w-[1032px] gap-10 ${
+          isVisible ? "animate-slide-right" : "opacity-0"
+        }`}
+      >
         <div className="">
           <img src="" alt="" />
           <FiHexagon className="w-[183px] h-[207px]" />
@@ -31,7 +33,11 @@ const AboutMe = () => {
           feel free to contact me. Let's get it!!!
         </span>
       </div>
-      <div className="flex flex-col items-center w-[1032px] animate__animated animate__fadeInRight">
+      <div
+        className={`flex flex-col items-center w-[1032px] ${
+          isVisible ? "animate-slide-right" : "opacity-0"
+        }`}
+      >
         <h1 className="text-[64px] font-black">
           <span className="text-[#263138]">Hard </span>
           <span className="text-[#445964]">Skills</span>
@@ -48,7 +54,7 @@ const AboutMe = () => {
             { name: "Python", score: 3 },
           ].map((skill) => (
             <div className="col-span-1">
-              <div className="w-full flex flex-col items-center">
+              <div className="w-full flex flex-col items-center hover:-translate-y-1 duration-200 cursor-pointer ">
                 <h2 className="text-[36px] font-black">{skill.name}</h2>
                 <div className="flex gap-2">
                   {Array(skill.score)

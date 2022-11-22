@@ -25,7 +25,7 @@ const ToTop = () => {
   window.addEventListener("scroll", toggleVisible);
   return (
     <div
-      className={` bottom-10 right-10 sticky w-full flex justify-end ${
+      className={` bottom-10 right-10 sticky w-full flex justify-end z-0 ${
         visible ? "" : "opacity-0"
       }`}
     >
