@@ -22,7 +22,7 @@ const AboutMe = () => {
           <img src="" alt="" />
           <FiHexagon className="w-[183px] h-[207px]" />
         </div>
-        <h1 className="text-[64px] font-black">
+        <h1 className="text-[36px] 2xl:text-[64px] font-black">
           <span className="text-[#445964]">Paul </span>
           <span className="text-[#263138]">Haung</span>
         </h1>
@@ -38,7 +38,7 @@ const AboutMe = () => {
           isVisible ? "animate-slide-right" : "opacity-0"
         }`}
       >
-        <h1 className="text-[64px] font-black">
+        <h1 className="text-[36px] 2xl:text-[64px] font-black">
           <span className="text-[#263138]">Hard </span>
           <span className="text-[#445964]">Skills</span>
         </h1>

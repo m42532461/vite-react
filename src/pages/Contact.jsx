@@ -16,7 +16,7 @@ const Contact = () => {
       ref={containerRef}
     >
       <h1
-        className={` text-[#263138] text-[64px] font-black w-full text-left ${
+        className={` text-[#263138] text-[36px] 2xl:text-[64px] font-black w-full text-left ${
           isVisible ? "animate-slide-right" : "opacity-0"
         }`}
       >

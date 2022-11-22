@@ -62,7 +62,7 @@ const Home = ({ language, changeLanguage }) => {
     >
       <Navbar changeLanguage={changeLanguage} />
       <div
-        className={`flex w-[1400px] mt-[172px] items-end ${
+        className={`flex w-[400px] 2xl:w-[1400px] mt-[172px] items-end ${
           isVisible ? "animate-slide-left" : ""
         }`}
       >
@@ -83,7 +83,7 @@ const Home = ({ language, changeLanguage }) => {
           </div>
           <ContactIcon />
         </div>
-        <div className="flex-1 right">
+        <div className="flex-1 right hidden 2xl:block">
           <img src={art1} alt="" />
         </div>
       </div>

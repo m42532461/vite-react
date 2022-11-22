@@ -83,26 +83,26 @@ const Portfolio = () => {
   const [parent, enableAnimations] = useAutoAnimate(/* optional config */);
   return (
     <div
-      className={`flex flex-col w-[1400px] pb-[145px] `}
+      className={`flex flex-col 2xl:w-[1400px] pb-[145px] `}
       id="portfolio"
       ref={containerRef}
     >
       <div
-        className={`flex gap-[91px] items-end pt-[91px] ${
+        className={`flex flex-col 2xl:flex-row gap-[91px] items-end pt-[91px] ${
           isVisible ? "animate-slide-left" : " opacity-0"
         }`}
       >
-        <h1 className="text-[64px] font-black">
+        <h1 className="text-[36px] 2xl:text-[64px] font-black">
           <span className="text-[#263138]">My</span>
           <br /> <span className="text-[#445964]">Portfolio</span>
         </h1>
-        <span className="text-[24px] font-medium text-[#445964]">
+        <span className="text-[24px] font-medium text-[#445964] hidden 2xl:block">
           These are some of the works and projects
           <br /> I've done
         </span>
       </div>
       <div
-        className={`flex gap-[18px]  font-black text-[24px] mb-[75px] mt-[80px] ${
+        className={`flex gap-[18px]  font-black text-[24px] 2xl:text-[24px] mb-[75px] mt-[80px] ${
           isVisible ? "animate-slide-left " : "opacity-0"
         }`}
       >
@@ -133,7 +133,7 @@ const Portfolio = () => {
 
       {selected === "Ecommerce" && (
         <div
-          className={`w-full flex justify-center gap-[30px] ${
+          className={`w-full flex flex-col 2xl:flex-row justify-center gap-[30px] ${
             isVisible ? "animate-slide-left" : "opacity-0"
           }`}
         >
@@ -183,7 +183,7 @@ const Portfolio = () => {
       )}
       {selected === "Shop" && (
         <div
-          className={`w-full flex justify-center gap-[30px] ${
+          className={`w-full flex flex-col 2xl:flex-row justify-center gap-[30px] ${
             isVisible ? "animate-slide-left" : "opacity-0"
           }`}
         >
@@ -233,7 +233,7 @@ const Portfolio = () => {
       )}
       {selected === "Dashboard" && (
         <div
-          className={`w-full flex justify-center gap-[30px] ${
+          className={`w-full flex flex-col 2xl:flex-row justify-center gap-[30px] ${
             isVisible ? "animate-slide-left" : "opacity-0"
           }`}
         >
@@ -283,7 +283,7 @@ const Portfolio = () => {
       )}
       {selected === "Others" && (
         <div
-          className={`w-full flex justify-center gap-[30px] ${
+          className={`w-full flex flex-col 2xl:flex-row justify-center gap-[30px] ${
             isVisible ? "animate-slide-left" : "opacity-0"
           }`}
         >
