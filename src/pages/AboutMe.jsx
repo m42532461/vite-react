@@ -29,7 +29,7 @@ const AboutMe = () => {
           </h1>
         </div>
         <span className="text-[20px] 2xl:text-[24px] font-medium text-[#445964]">
-          My name is Paul Haung, I'm a software and website developer. The main
+          My name is Paul Huang, I'm a software and website developer. The main
           development technology currently used is MERN (MongoDB + Express +
           React + Nodejs). If you have any kind of need about skills I have,
           feel free to contact me. Let's get it!!!

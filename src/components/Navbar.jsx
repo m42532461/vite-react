@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="flex items-center gap-1 2xl:gap-5">
         <CgCodeClimate className="w-16 h-16 2xl:w-24 2xl:h-24 " />
         <h1 className="text-[26px] 2xl:text-[36px] font-black text-[#445964]">
-          Paul Haung
+          Paul Huang
         </h1>
       </div>
       <div className="text-[20px] text-[#445964] font-semibold h-full hidden lg:flex">

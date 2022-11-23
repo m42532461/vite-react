@@ -124,7 +124,7 @@ const Portfolio = () => {
       >
         {projects.map((project) => (
           <button
-            className={`relative inline-flex items-center justify-start overflow-hidden transition-all mx-2 md:mx-0 group py-[10px] px-[15px] 2xl:px-[30px] 2xl:py-5 first:text-white  text-[#445964] rounded-[13px] 2xl:rounded-[20px] ${
+            className={`relative inline-flex items-center justify-start overflow-hidden transition-all mx-2 group py-[10px] px-[15px] 2xl:px-[30px] 2xl:py-5 first:text-white  text-[#445964] rounded-[13px] 2xl:rounded-[20px]  ${
               selected === project.title ? "bg-[#263138]" : "bg-Soft-Grey"
             } ease-out duration-500`}
             key={project.title}
