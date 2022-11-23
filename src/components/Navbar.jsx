@@ -22,7 +22,6 @@ const Navbar = () => {
               <a href={`#${item.toLowerCase()}`} className="">
                 {item}
               </a>
-              <span className="w-0 h-0 rounded bg-purple-600 absolute top-0 left-0 ease-out duration-500 transition-all group-hover:w-full group-hover:h-full -z-1"></span>
             </div>
           )
         )}

@@ -22,7 +22,7 @@ const AboutMe = () => {
         <div className="flex flex-col-reverse 2xl:flex-col">
           <div className="flex justify-center relative">
             <div className="avatar">
-              <div className="w-[120px] mask mask-hexagon relative">
+              <div className="w-[120px] 2xl:w-[240px] mask mask-hexagon relative">
                 <img src={avatar} className="grayscale-[20%]" />
                 <div className="absolute top-0 left-0 w-full h-full bg-Grey  opacity-50 z-10"></div>
               </div>
