@@ -1,5 +1,5 @@
 import React from "react";
-import Quote from "../assets/Quote.png";
+import Quote from "../assets/quote.png";
 import useElementOnScreen from "../functions/useElementOnScreen";
 
 import { options, scrollClass } from "../functions/options";
