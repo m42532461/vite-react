@@ -25,7 +25,7 @@ const AboutMe = () => {
           </div>
           <h1 className="text-[36px] 2xl:text-[64px] font-black">
             <span className="text-[#445964]">Paul </span>
-            <span className="text-[#263138]">Haung</span>
+            <span className="text-[#263138]">Huang</span>
           </h1>
         </div>
         <span className="text-[20px] 2xl:text-[24px] font-medium text-[#445964]">
