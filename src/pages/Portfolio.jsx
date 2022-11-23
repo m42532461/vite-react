@@ -73,7 +73,7 @@ import layout from "../assets/layout.png";
 import uiux from "../assets/uiux.png";
 import ecommerce from "../assets/ecommerce.png";
 import shop from "../assets/shop.png";
-import ScrollOnHover from "../components/ScrollOnHover";
+import ScrollOnActive from "../components/ScrollOnActive";
 const Portfolio = () => {
   const [containerRef, isVisible] = useElementOnScreen(options);
   const [selected, setSelected] = useState("Ecommerce");
@@ -147,10 +147,10 @@ const Portfolio = () => {
         ))}
       </div>
       <div className="flex flex-col 2xl:hidden gap-40 pt-20">
-        <ScrollOnHover img={ecommerce} />
-        <ScrollOnHover img={shop} />
-        <ScrollOnHover img={uiux} duration="duration-[10s]" />
-        <ScrollOnHover img={layout} />
+        <ScrollOnActive img={ecommerce} duration="duration-[8s]" />
+        <ScrollOnActive img={shop} />
+        <ScrollOnActive img={uiux} duration="duration-[10s]" />
+        <ScrollOnActive img={layout} />
       </div>
       {selected === "Ecommerce" && (
         <div

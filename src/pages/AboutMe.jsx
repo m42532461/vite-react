@@ -4,6 +4,7 @@ import { FiHexagon } from "react-icons/fi";
 import useElementOnScreen from "../functions/useElementOnScreen";
 import { options, scrollClass } from "../functions/options";
 import "animate.css";
+import avatar from "../assets/avatar1.jpg";
 
 const AboutMe = () => {
   const [containerRef, isVisible] = useElementOnScreen(options);
@@ -19,16 +20,20 @@ const AboutMe = () => {
         }`}
       >
         <div className="flex flex-col-reverse 2xl:flex-col">
-          <div className="flex justify-center">
-            <img src="" alt="" />
-            <FiHexagon className="w-[100px] h-[100px] 2xl:w-[183px] 2xl:h-[207px]" />
+          <div className="flex justify-center relative">
+            <div className="avatar">
+              <div className="w-[120px] mask mask-hexagon relative">
+                <img src={avatar} className="grayscale-[20%]" />
+                <div className="absolute top-0 left-0 w-full h-full bg-Grey  opacity-50 z-10"></div>
+              </div>
+            </div>
           </div>
           <h1 className="text-[36px] 2xl:text-[64px] font-black">
             <span className="text-[#445964]">Paul </span>
             <span className="text-[#263138]">Huang</span>
           </h1>
         </div>
-        <span className="text-[20px] 2xl:text-[24px] font-medium text-[#445964]">
+        <span className="text-[14px] 2xl:text-[24px] font-medium text-[#445964]">
           My name is Paul Huang, I'm a software and website developer. The main
           development technology currently used is MERN (MongoDB + Express +
           React + Nodejs). If you have any kind of need about skills I have,
