@@ -14,6 +14,11 @@ const ScrollOnHover = ({
           className={`${duration} w-full h-full object-cover object-top group-hover:object-bottom transition-all ease-linear`}
           alt=""
         />
+        <img
+          src={img}
+          className="absolute top-0 left-0 w-full h-full  object-cover object-top z-10 group-hover:hidden"
+          alt=""
+        />
         <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50 group hover:opacity-0"></div>
       </div>
     </div>
