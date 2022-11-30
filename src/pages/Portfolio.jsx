@@ -74,7 +74,7 @@ import uiux from "../assets/uiux.png";
 import ecommerce from "../assets/ecommerce.png";
 import shop from "../assets/shop.png";
 import ScrollOnActive from "../components/ScrollOnActive";
-const Portfolio = () => {
+const Portfolio = ({ language }) => {
   const [containerRef, isVisible] = useElementOnScreen(options);
   const [selected, setSelected] = useState("Ecommerce");
   const [source, setSource] = useState([
@@ -102,8 +102,10 @@ const Portfolio = () => {
           <br /> <span className="text-[#445964]">Portfolio</span>
         </h1>
         <span className="text-[24px] font-medium text-[#445964]">
-          These are some of the works and projects
-          <br /> I've done
+          {language === "Chinese"
+            ? "以下是部分我曾完成的專案"
+            : "These are some of the works and projects"}
+          <br /> {language === "Chinese" ? "" : "I've done"}
         </span>
       </div>
       <div

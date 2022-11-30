@@ -2,17 +2,24 @@ import React, { useState } from "react";
 
 import { CgCodeClimate } from "react-icons/cg";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
-const Navbar = () => {
+const Navbar = ({ language, changeLanguage }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <div className="flex justify-between w-[370px] 2xl:w-[1400px] items-center pt-5 ">
+      <button
+        className="hidden"
+        onClick={() =>
+          changeLanguage(language === "Chinese" ? "English" : "Chinese")
+        }
+      >
+        {language === "Chinese" ? "繁中" : "EN"}
+      </button>
       <div className="flex items-center gap-1 2xl:gap-5">
         <CgCodeClimate className="w-16 h-16 2xl:w-24 2xl:h-24 " />
         <h1 className="text-[26px] 2xl:text-[36px] font-black text-[#445964]">
           Paul Huang
         </h1>
-      </div>
-      <div className="text-[20px] text-[#445964] font-semibold h-full hidden lg:flex">
+        <div className="text-[20px] text-[#445964] font-semibold h-full hidden lg:flex"></div>
         {["Home", "About", "Portfolio", "Service", "Techs", "Contact"].map(
           (item) => (
             <div

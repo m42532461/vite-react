@@ -9,7 +9,7 @@ import Contact from "./pages/Contact";
 import ToTop from "./components/ToTop";
 import { useState } from "react";
 const App = () => {
-  const [language, setLanguage] = useState("Chinese");
+  const [language, setLanguage] = useState("English");
   return (
     <div className="flex flex-col items-center bg-BG overflow-clip relative">
       <Home language={language} changeLanguage={setLanguage} />

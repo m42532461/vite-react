@@ -6,7 +6,7 @@ import { options, scrollClass } from "../functions/options";
 import "animate.css";
 import avatar from "../assets/avatar1.jpg";
 
-const AboutMe = () => {
+const AboutMe = ({ language }) => {
   const [containerRef, isVisible] = useElementOnScreen(options);
   return (
     <div
@@ -34,10 +34,13 @@ const AboutMe = () => {
           </h1>
         </div>
         <span className="text-[14px] 2xl:text-[24px] font-medium text-[#445964]">
-          My name is Paul Huang, I'm a software and website developer. The main
+          {language === "Chinese"
+            ? `我是Paul Huang，我是一位網頁前後端及軟體工程師。主要使用的技術為MERN (MongoDB + Express +
+              React + Nodejs)，若您也有這方面的需求，歡迎隨時聯繫我，一起來完成他吧!!!`
+            : `My name is Paul Huang, I'm a software and website developer. The main
           development technology currently used is MERN (MongoDB + Express +
           React + Nodejs). If you have any kind of need about skills I have,
-          feel free to contact me. Let's get it!!!
+          feel free to contact me. Let's get it!!!`}
         </span>
       </div>
       <div
@@ -72,14 +75,20 @@ const AboutMe = () => {
                   {Array(skill.score)
                     .fill(1)
                     .map((count, index) => (
-                      <div className="w-6 h-6 2xl:w-8 2xl:h-8 " key={index}>
+                      <div
+                        className="w-6 h-6 2xl:w-8 2xl:h-8 "
+                        key={skill + index}
+                      >
                         <img src={Score} alt="" />
                       </div>
                     ))}
                   {Array(5 - skill.score)
                     .fill(1)
                     .map((count, index) => (
-                      <div className="w-6 h-6 2xl:w-8 2xl:h-8 " key={5 - index}>
+                      <div
+                        className="w-6 h-6 2xl:w-8 2xl:h-8 "
+                        key={skill + (5 - index)}
+                      >
                         <img className=" opacity-20" src={Score} alt="" />
                       </div>
                     ))}

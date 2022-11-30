@@ -11,7 +11,10 @@ const Home = ({ language, changeLanguage }) => {
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["Web Developer", "Freelancer", "Software Developer"];
+  const toRotate =
+    language === "Chinese"
+      ? ["網頁開發人員", "自由工作者", "軟體開發人員"]
+      : ["Web Developer", "Freelancer", "Software Developer"];
   const period = 2000;
 
   const [containerRef, isVisible] = useElementOnScreen(options);
@@ -60,7 +63,7 @@ const Home = ({ language, changeLanguage }) => {
       id="home"
       ref={containerRef}
     >
-      <Navbar changeLanguage={changeLanguage} />
+      <Navbar language={language} changeLanguage={changeLanguage} />
       <div
         className={`flex w-[380px] px-5 2xl:px-0 2xl:w-[1400px] mt-[100px] 2xl:mt-[172px] items-end ${
           isVisible ? "animate-slide-left" : ""
@@ -69,19 +72,25 @@ const Home = ({ language, changeLanguage }) => {
         <div className="flex-1 left flex flex-col gap-[100px] 2xl:gap-[150px] h-full ">
           <div className="text-[#445964]">
             <span className="text-[24px] font-black 2xl:font-medium">
-              Hi there,
+              {language === "Chinese" ? "嗨" : "Hi there,"}
             </span>
             <h1 className="text-[44px] 2xl:text-[72px] font-black">
-              I'm a <span className="border-r-4 border-[#666]">{text}</span>
+              {language === "Chinese" ? "我是一位" : "I'm a "}
+              <span className="border-r-4 border-[#666]">{text}</span>
             </h1>
             <span className="text-[24px] font-black 2xl:font-medium">
-              Welcome to my website
+              {language === "Chinese"
+                ? "歡迎來到我的網站"
+                : "Welcome to my website"}
             </span>
           </div>
           <div className="">
-            <button className="px-[31px] py-[24px] font-black bg-[#263138] text-white rounded-[20px] hover:-translate-y-1 duration-200 cursor-pointer hover:shadow-xl">
-              Learn more about me
-            </button>
+            <a
+              href="#about"
+              className="px-[31px] py-[24px] font-black bg-[#263138] text-white rounded-[20px] hover:-translate-y-1 duration-200 cursor-pointer hover:shadow-xl"
+            >
+              {language === "Chinese" ? "關於我" : "Learn more about me"}
+            </a>
           </div>
           <ContactIcon />
         </div>
